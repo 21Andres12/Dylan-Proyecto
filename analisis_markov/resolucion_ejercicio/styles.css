@@ -1,0 +1,460 @@
+/* ==========================================================================
+   1. VARIABLES DE ENTORNO Y CONFIGURACIÓN (SISTEMA DE DISEÑO)
+   ========================================================================== */
+:root {
+    --bg-ambiente: #060f0e;      /* Verde bosque extremadamente oscuro y elegante */
+    --bg-superficie: rgba(16, 36, 32, 0.4); /* Superficie translúcida con matiz verde */
+    --texto-principal: #f0fdf4;  /* Blanco con un levísimo toque menta */
+    --texto-mutado: #6b7c78;     /* Gris verdoso sutil */
+    --color-firma: #4ade80;      /* Verde esmeralda brillante para acentos principales */
+    --color-acento-verde: #a3e635; /* Verde lima/menta vibrante para segundos acentos y procedimientos */
+    --borde-sutil: rgba(255, 255, 255, 0.04);
+}
+
+/* Reset Global Basado en Buenas Prácticas */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: system-ui, -apple-system, BlinkMacSystemFont, sans-serif;
+    background-color: var(--bg-ambiente);
+    color: var(--texto-principal);
+    line-height: 1.6;
+    padding: 3rem 2rem;
+    min-height: 100vh;
+    position: relative;
+    overflow-x: hidden; /* Evita desbordamientos por el orbe decorativo */
+}
+
+/* Fondo Atmosférico / Orbe */
+.orbe-decorativo {
+    position: absolute;
+    top: 15%;
+    left: 75%;
+    transform: translate(-50%, -50%);
+    width: 700px;
+    height: 700px;
+    background: radial-gradient(circle, rgba(74, 222, 128, 0.04) 0%, rgba(0,0,0,0) 70%);
+    z-index: -1;
+    pointer-events: none;
+}
+
+/* ==========================================================================
+   2. ESTRUCTURA, CONTENEDORES Y NAVEGACIÓN
+   ========================================================================== */
+.header-tema {
+    max-width: 850px;
+    width: 100%;
+    margin: 0 auto 3rem auto;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding-bottom: 1rem;
+    border-bottom: 1px solid var(--borde-sutil);
+}
+
+.btn-regresar {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
+    color: var(--texto-mutado);
+    text-decoration: none;
+    font-size: 1.3rem;
+    font-weight: 500;
+    transition: color 0.2s ease;
+}
+
+.btn-regresar:hover { 
+    color: #ffffff; 
+}
+
+.badge-tema {
+    background: rgba(74, 222, 128, 0.08);
+    color: var(--color-firma);
+    padding: 0.3rem 0.9rem;
+    border-radius: 20px;
+    font-size: 1.3rem;
+    font-weight: 600;
+    border: 1px solid rgba(74, 222, 128, 0.1);
+}
+
+.contenedor-tema { 
+    max-width: 850px; 
+    width: 100%; 
+    margin: 0 auto; 
+}
+
+/* Typography & Headers */
+.titulo-principal {
+    font-family: 'Rockwell', serif;
+    font-size: 3rem;
+    font-weight: 700;
+    color: #ffffff;
+    margin-bottom: 0.25rem;
+}
+
+.subtitulo-rockwell {
+    font-family: 'Rockwell', serif;
+    font-size: 1.6rem;
+    font-weight: 600;
+    color: #ffffff;
+    margin-bottom: 1.25rem;
+    margin-top: 2.5rem;
+    border-bottom: 1px solid var(--borde-sutil);
+    padding-bottom: 0.5rem;
+}
+
+.bajada-titulo { 
+    font-size: 1.1rem; 
+    color: var(--color-firma); 
+    margin-bottom: 1.75rem; 
+    font-weight: 500; 
+}
+
+/* ==========================================================================
+   3. SECCIONES, BLOQUES E INFORMES ESTRATÉGICOS
+   ========================================================================== */
+.seccion-contenido { 
+    margin-bottom: 3.5rem; 
+}
+
+.seccion-contenido p { 
+    color: #cbd5e1; 
+    margin-bottom: 1.25rem; 
+    font-size: 1rem; 
+}
+
+.bloque-abstract {
+    background: linear-gradient(to right, rgba(74, 222, 128, 0.03), transparent);
+    border-left: 3px solid var(--color-firma);
+    padding: 1.5rem;
+    border-radius: 0 12px 12px 0;
+    margin-bottom: 3rem;
+    font-size: 1.05rem;
+    color: #cbd5e1;
+}
+
+.destaque-regra {
+    background: rgba(255, 255, 255, 0.01);
+    border: 1px solid var(--borde-sutil);
+    padding: 1.25rem 1.5rem;
+    border-radius: 14px;
+    margin: 1.5rem 0;
+}
+
+.caja-reporte {
+    background: #091714;
+    border: 1px solid var(--borde-sutil);
+    padding: 1.5rem;
+    border-radius: 14px;
+    margin-top: 1.5rem;
+}
+
+.caja-reporte h5 { 
+    color: var(--color-firma); 
+    font-size: 0.95rem; 
+    text-transform: uppercase; 
+    letter-spacing: 0.02em; 
+    margin-bottom: 0.5rem; 
+}
+
+.caja-reporte blockquote { 
+    font-size: 1.1rem; 
+    font-style: italic; 
+    color: #ffffff; 
+    padding-left: 1rem; 
+    border-left: 2px solid var(--color-firma); 
+    margin-bottom: 0.75rem; 
+}
+
+.conclusion-reporte { 
+    font-size: 0.92rem; 
+    color: var(--texto-mutado); 
+    margin-bottom: 0 !important; 
+}
+
+/* Bloques de procedimiento matemático */
+.bloque-procedimiento {
+    background: rgba(255, 255, 255, 0.01);
+    border: 1px solid var(--borde-sutil);
+    border-left: 4px solid var(--color-acento-verde);
+    padding: 1.5rem;
+    border-radius: 0 12px 12px 0;
+    margin-bottom: 1.5rem;
+}
+
+.bloque-procedimiento h4 { 
+    color: #ffffff; 
+    margin-bottom: 0.75rem; 
+    font-size: 1rem; 
+}
+
+.desglose-ecuacion p { 
+    font-family: monospace; 
+    margin-bottom: 0.4rem; 
+    font-size: 0.95rem; 
+}
+
+/* ==========================================================================
+   4. TABLAS REORGANIZADAS PARA MATRICES Y MODELOS
+   ========================================================================== */
+.tabla-datos-ejercicio, .tabla-pronostico-final {
+    width: 100%;
+    border-collapse: collapse;
+    margin: 1.5rem 0;
+    font-size: 0.95rem;
+    background: var(--bg-superficie);
+    border-radius: 12px;
+    overflow: hidden;
+    border: 1px solid var(--borde-sutil);
+}
+
+.tabla-datos-ejercicio th, .tabla-pronostico-final th {
+    background: rgba(255, 255, 255, 0.02);
+    color: var(--color-firma);
+    text-align: left;
+    padding: 1rem;
+    font-weight: 600;
+}
+
+.matrix-inputs th {
+    color: var(--color-acento-verde) !important;
+}
+
+.tabla-datos-ejercicio td, .tabla-pronostico-final td {
+    padding: 1rem;
+    border-bottom: 1px solid var(--borde-sutil);
+    color: #cbd5e1;
+}
+
+.clear-border { 
+    border: none !important; 
+    background: transparent !important; 
+    padding: 0 !important; 
+}
+
+/* ==========================================================================
+   5. CONTENEDORES DE ELEMENTOS MATEMÁTICOS (MARKOW SPECIAL)
+   ========================================================================== */
+.matriz-representacion {
+    display: flex;
+    align-items: center;
+    gap: 1.5rem;
+    margin: 1.5rem 0;
+    font-family: monospace;
+}
+
+.label-matriz { 
+    font-size: 1.3rem; 
+    font-weight: bold; 
+    color: #ffffff; 
+}
+
+.matriz-brackets {
+    border-left: 2px solid var(--color-firma);
+    border-right: 2px solid var(--color-firma);
+    padding: 0.5rem 1rem;
+    border-radius: 8px;
+    display: flex;
+    flex-direction: column;
+    gap: 0.6rem;
+}
+
+.fila-matriz {
+    display: flex;
+    gap: 1.5rem;
+    justify-content: center;
+}
+
+.fila-matriz span {
+    width: 55px;
+    text-align: center;
+    color: #ffffff;
+    font-size: 1rem;
+}
+
+.vector-destacado {
+    text-align: center;
+    font-size: 1.25rem;
+    color: var(--color-firma);
+    font-weight: bold;
+    margin: 1.5rem 0;
+}
+
+.vector-destacado-interno { 
+    margin-top: 1rem; 
+    color: var(--color-acento-verde); 
+    font-weight: bold; 
+}
+
+/* ==========================================================================
+   6. GRIDS, GLASSMORPHISM Y TARJETAS COMPLEJAS
+   ========================================================================== */
+.grid-variables {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 1.5rem;
+    margin: 1.5rem 0;
+}
+
+.grid-fuentes {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 1rem;
+    margin: 1.5rem 0;
+}
+
+.fuente-item {
+    background: rgba(255, 255, 255, 0.01);
+    border: 1px solid var(--borde-sutil);
+    padding: 0.85rem 1.25rem;
+    border-radius: 10px;
+    font-size: 0.92rem;
+    color: #e2e8f0;
+}
+
+/* Bloque Análisis MC Estilo Cuadro de Mandos */
+.bloque-analisis-mc {
+    background: var(--bg-superficie);
+    border: 1px solid var(--borde-sutil);
+    border-radius: 18px;
+    margin-bottom: 2.5rem;
+    overflow: hidden;
+    backdrop-filter: blur(12px);
+    -webkit-backdrop-filter: blur(12px); /* Soporte Safari */
+}
+
+.cabecera-analisis-mc {
+    background: rgba(255, 255, 255, 0.02);
+    padding: 1.25rem 1.5rem;
+    border-bottom: 1px solid var(--borde-sutil);
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+}
+
+.etiqueta-frente-mc {
+    background: rgba(74, 222, 128, 0.08);
+    color: var(--color-firma);
+    font-size: 0.75rem;
+    font-weight: 700;
+    padding: 0.25rem 0.6rem;
+    border-radius: 6px;
+    text-transform: uppercase;
+}
+
+.cabecera-analisis-mc h3 { font-size: 1.15rem; color: #ffffff; font-weight: 600; }
+.sub-linea-mc { font-size: 0.9rem; color: var(--texto-mutado); font-weight: 400; }
+.cuerpo-analisis-mc { padding: 1.5rem; }
+
+.grid-mc-tres {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    gap: 1.25rem;
+}
+
+.mc-card {
+    background: rgba(255, 255, 255, 0.01);
+    border: 1px solid rgba(255, 255, 255, 0.02);
+    padding: 1.25rem;
+    border-radius: 12px;
+}
+
+.mc-card-tag {
+    display: block;
+    font-size: 0.8rem;
+    color: var(--texto-mutado);
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.03em;
+    margin-bottom: 0.6rem;
+}
+
+.mc-card p { font-size: 0.9rem; line-height: 1.5; margin-bottom: 0 !important; color: #cbd5e1; }
+.mc-card p strong { color: #ffffff; }
+
+.mc-card.revelacion {
+    background: linear-gradient(135deg, rgba(74, 222, 128, 0.02) 0%, transparent 100%);
+    border-color: rgba(74, 222, 128, 0.08);
+}
+.mc-card.revelacion .mc-card-tag { color: var(--color-firma); }
+
+.mc-card.utilidad {
+    background: linear-gradient(135deg, rgba(163, 230, 53, 0.02) 0%, transparent 100%);
+    border-color: rgba(163, 230, 53, 0.08);
+}
+.mc-card.utilidad .mc-card-tag { color: var(--color-acento-verde); }
+
+/* Cajas de Estado Estable */
+.caja-uso, .caja-uso-mc.transformador {
+    background: linear-gradient(135deg, rgba(74, 222, 128, 0.03) 0%, rgba(163, 230, 53, 0.02) 100%);
+    border: 1px solid rgba(74, 222, 128, 0.1);
+    padding: 2rem;
+    border-radius: 16px;
+    margin-top: 1.5rem;
+}
+
+.caja-uso h5 {
+    color: #ffffff;
+    margin-bottom: 1rem;
+    font-size: 1rem;
+}
+
+.numbers-estable .tarjeta-variable {
+    background: rgba(6, 15, 14, 0.6) !important;
+    border: 1px solid var(--borde-sutil) !important;
+    padding: 1.25rem;
+    border-radius: 10px;
+}
+
+.text-center { text-align: center; }
+
+.val-final {
+    display: block;
+    font-size: 1.8rem;
+    font-weight: bold;
+    color: var(--color-acento-verde);
+    margin: 0.2rem 0;
+}
+
+.final-box {
+    background: linear-gradient(135deg, rgba(74, 222, 128, 0.02) 0%, transparent 100%);
+    padding: 2rem;
+    border-radius: 16px;
+    border: 1px solid rgba(74, 222, 128, 0.04);
+}
+
+.margin-top { margin-top: 1.5rem; }
+
+/* ==========================================================================
+   7. ANIMACIONES Y MEDIA QUERIES (RESPONSIVE)
+   ========================================================================== */
+.animate-fade {
+    opacity: 0;
+    transform: translateY(10px);
+    animation: surgir 0.6s ease forwards;
+}
+
+@keyframes surgir { 
+    to { 
+        opacity: 1; 
+        transform: translateY(0); 
+    } 
+}
+
+/* Consultas de Adaptabilidad Responsiva */
+@media (max-width: 900px) {
+    .grid-mc-tres { grid-template-columns: 1fr; gap: 1rem; }
+    .grid-fuentes { grid-template-columns: 1fr; }
+    .grid-variables { grid-template-columns: 1fr; }
+}
+
+@media (max-width: 768px) {
+    body { padding: 1.5rem 1rem; }
+    .titulo-principal { font-size: 2.25rem; }
+    .header-tema { flex-direction: column; gap: 1rem; align-items: flex-start; }
+    .matriz-representacion { flex-direction: column; align-items: flex-start; gap: 0.5rem; }
+}

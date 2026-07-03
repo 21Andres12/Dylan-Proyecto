@@ -1,0 +1,328 @@
+/* ==========================================================================
+   1. VARIABLES DE ENTORNO Y CONFIGURACIÓN (SISTEMA DE DISEÑO PREMIUM)
+   ========================================================================== */
+:root {
+    --bg-ambiente: #060f0e;       /* Verde bosque extremadamente oscuro y elegante */
+    --bg-superficie: rgba(16, 36, 32, 0.4); /* Superficie translúcida con matiz verde */
+    --texto-principal: #f0fdf4;   /* Blanco con un levísimo toque menta */
+    --texto-mutado: #6b7c78;      /* Gris verdoso sutil */
+    --color-firma: #4ade80;       /* Verde esmeralda brillante para acentos principales */
+    --color-acento-verde: #a3e635; /* Verde lima/menta vibrante para segundos acentos */
+    --color-alerta-naranja: #fbbf24; /* Mantiene el naranja para alertas de rendimiento */
+    --borde-sutil: rgba(255, 255, 255, 0.04);
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: system-ui, -apple-system, BlinkMacSystemFont, sans-serif;
+    background-color: var(--bg-ambiente);
+    color: var(--texto-principal);
+    line-height: 1.6;
+    padding: 3rem 2rem;
+    min-height: 100vh;
+    position: relative;
+    overflow-x: hidden;
+}
+
+.orbe-decorativo {
+    position: absolute;
+    top: 15%;
+    left: 75%;
+    transform: translate(-50%, -50%);
+    width: 600px;
+    height: 600px;
+    background: radial-gradient(circle, rgba(74, 222, 128, 0.02) 0%, rgba(0,0,0,0) 70%);
+    z-index: -1;
+    pointer-events: none;
+}
+
+/* ==========================================================================
+   2. NAVEGACIÓN Y TEXTURAS DE ENCABEZADO
+   ========================================================================== */
+.header-tema {
+    max-width: 850px;
+    width: 100%;
+    margin: 0 auto 3rem auto;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding-bottom: 1rem;
+    border-bottom: 1px solid var(--borde-sutil);
+}
+
+.btn-regresar {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
+    color: var(--texto-mutado);
+    text-decoration: none;
+    font-size: 1.1rem;
+    font-weight: 500;
+    transition: color 0.2s ease;
+}
+
+.btn-regresar:hover { 
+    color: #ffffff; 
+}
+
+.badge-tema {
+    background: rgba(74, 222, 128, 0.08);
+    color: var(--color-firma);
+    padding: 0.3rem 0.9rem;
+    border-radius: 20px;
+    font-size: 0.9rem;
+    font-weight: 600;
+    border: 1px solid rgba(74, 222, 128, 0.1);
+}
+
+.contenedor-tema { 
+    max-width: 850px; 
+    width: 100%; 
+    margin: 0 auto; 
+}
+
+.titulo-principal {
+    font-family: 'Rockwell', serif;
+    font-size: 2.8rem;
+    font-weight: 700;
+    color: #ffffff;
+    margin-bottom: 0.4rem;
+}
+
+.subtitulo-rockwell {
+    font-family: 'Rockwell', serif;
+    font-size: 1.35rem;
+    font-weight: 600;
+    color: #ffffff;
+    margin-bottom: 1.25rem;
+    margin-top: 2rem;
+    border-bottom: 1px solid var(--borde-sutil);
+    padding-bottom: 0.5rem;
+}
+
+.bajada-titulo { 
+    font-size: 1.1rem; 
+    color: var(--color-firma); 
+    margin-bottom: 2rem; 
+}
+
+/* ==========================================================================
+   3. BLOQUES DE ANÁLISIS E INFRAESTRUCTURA DE CONTENIDO
+   ========================================================================== */
+.seccion-contenido { 
+    margin-bottom: 3.5rem; 
+}
+
+.seccion-contenido p {
+    color: #cbd5e1;
+    margin-bottom: 1rem;
+}
+
+.bloque-abstract {
+    background: linear-gradient(to right, rgba(74, 222, 128, 0.02), transparent);
+    border-left: 3px solid var(--color-firma);
+    padding: 1.75rem;
+    border-radius: 0 14px 14px 0;
+}
+
+.bloque-analisis-calidad {
+    background: var(--bg-superficie);
+    border: 1px solid var(--borde-sutil);
+    border-radius: 16px;
+    overflow: hidden;
+    backdrop-filter: blur(8px);
+    -webkit-backdrop-filter: blur(8px);
+}
+
+.cabecera-analisis-calidad {
+    background: rgba(255, 255, 255, 0.02);
+    padding: 1.25rem 1.5rem;
+    border-bottom: 1px solid var(--borde-sutil);
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+}
+
+.etiqueta-frente-calidad {
+    background: rgba(74, 222, 128, 0.08);
+    color: var(--color-firma);
+    font-size: 0.75rem;
+    font-weight: 700;
+    padding: 0.3rem 0.6rem;
+    border-radius: 6px;
+    text-transform: uppercase;
+}
+
+.cabecera-analisis-calidad h3 { 
+    font-size: 1.2rem; 
+    color: #ffffff; 
+}
+
+.sub-linea-calidad { 
+    font-size: 0.85rem; 
+    color: var(--texto-mutado); 
+}
+
+.cuerpo-analisis-calidad { 
+    padding: 1.5rem; 
+}
+
+/* ==========================================================================
+   4. COMPONENTES INTERNOS Y TARJETAS ESPECÍFICAS
+   ========================================================================== */
+.tarjeta-especifica-calidad {
+    background: rgba(255, 255, 255, 0.01);
+    border: 1px solid var(--borde-sutil);
+    padding: 1.5rem;
+    border-radius: 12px;
+    margin-bottom: 1.5rem;
+}
+
+.tarjeta-especifica-calidad h5 {
+    font-size: 1.15rem;
+    color: #ffffff;
+    margin-bottom: 0.75rem;
+}
+
+.sub-grid-atributos {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 1rem;
+    margin: 1.25rem 0;
+}
+
+.mini-tarjeta-atributo {
+    background: rgba(0, 0, 0, 0.15);
+    border: 1px solid rgba(255, 255, 255, 0.02);
+    padding: 1rem;
+    border-radius: 8px;
+}
+
+.mini-tarjeta-atributo h6 {
+    color: var(--color-firma);
+    font-size: 0.95rem;
+    margin-bottom: 0.4rem;
+}
+
+.mini-tarjeta-atributo p {
+    font-size: 0.9rem;
+    color: #94a3b8;
+    margin-bottom: 0;
+}
+
+.destaque-nota-matematica {
+    border-top: 1px dashed var(--borde-sutil);
+    padding-top: 0.75rem;
+    margin-top: 0.75rem;
+}
+
+.destaque-nota-matematica p {
+    font-size: 0.9rem;
+    color: #cbd5e1;
+    margin-bottom: 0;
+}
+
+/* ==========================================================================
+   5. ÍNDICES DE CAPACIDAD Y TOMA DE DECISIONES
+   ========================================================================== */
+.grid-indices-calidad {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 1.25rem;
+    margin: 1.5rem 0;
+}
+
+.tarjeta-indice-resultado, .tarjeta-paso-calidad {
+    background: rgba(255, 255, 255, 0.01);
+    border: 1px solid var(--borde-sutil);
+    padding: 1.5rem;
+    border-radius: 12px;
+}
+
+.marcador-indice {
+    display: block;
+    font-size: 0.75rem;
+    color: var(--color-firma);
+    text-transform: uppercase;
+    font-weight: 700;
+    letter-spacing: 0.04em;
+    margin-bottom: 0.4rem;
+}
+
+.tarjeta-indice-resultado h4, .tarjeta-paso-calidad h5 {
+    font-size: 1.3rem;
+    color: #ffffff;
+    margin-bottom: 0.5rem;
+}
+
+.tarjeta-indice-resultado.penalizado .marcador-indice {
+    color: var(--color-alerta-naranja);
+}
+
+.tarjeta-paso-calidad.alerta {
+    border-color: rgba(239, 68, 68, 0.15);
+    background: linear-gradient(135deg, rgba(239, 68, 68, 0.01) 0%, transparent 100%);
+}
+
+.tarjeta-paso-calidad.alerta h5 {
+    color: #f87171;
+}
+
+.destaque-regra {
+    background: rgba(255, 255, 255, 0.01);
+    border: 1px solid var(--borde-sutil);
+    padding: 1.25rem;
+    border-radius: 12px;
+}
+
+.destaque-regra p {
+    margin-bottom: 0;
+}
+
+.caja-reporte-calidad {
+    background: #091714;
+    border: 1px solid var(--borde-sutil);
+    padding: 1.5rem;
+    border-radius: 14px;
+    margin-top: 1.75rem;
+}
+
+.caja-reporte-calidad h5 { 
+    color: var(--color-firma); 
+    font-size: 0.9rem; 
+    text-transform: uppercase; 
+    letter-spacing: 0.03em; 
+    margin-bottom: 0.6rem; 
+}
+
+.caja-reporte-calidad blockquote { 
+    font-size: 1.05rem; 
+    font-style: italic; 
+    color: #ffffff; 
+    padding-left: 1rem; 
+    border-left: 2px solid var(--color-firma); 
+}
+
+/* ==========================================================================
+   6. RESPONSIVE Y ANIMACIÓN DE ENTRADA
+   ========================================================================== */
+.animate-fade {
+    opacity: 0;
+    transform: translateY(8px);
+    animation: surgirCalidad 0.5s ease forwards;
+}
+
+@keyframes surgirCalidad { 
+    to { opacity: 1; transform: translateY(0); } 
+}
+
+@media (max-width: 768px) {
+    .sub-grid-atributos, .grid-indices-calidad { grid-template-columns: 1fr; }
+    body { padding: 2rem 1rem; }
+    .titulo-principal { font-size: 2.1rem; }
+}

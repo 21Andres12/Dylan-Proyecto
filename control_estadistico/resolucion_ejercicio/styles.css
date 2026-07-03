@@ -1,0 +1,292 @@
+/* ==========================================================================
+   HOJA DE ESTILOS INTEGRADA - ENTORNO OSCURO DE CONTROL DE CALIDAD
+   ========================================================================== */
+:root {
+    --bg-ambiente: #060f0e;       /* Verde bosque extremadamente oscuro y elegante */
+    --bg-superficie: rgba(16, 36, 32, 0.4); /* Superficie translúcida con matiz verde */
+    --texto-principal: #f0fdf4;   /* Blanco con un levísimo toque menta */
+    --texto-mutado: #6b7c78;      /* Gris verdoso sutil */
+    --color-firma: #4ade80;       /* Verde esmeralda brillante para acentos principales */
+    --color-acento-verde: #a3e635; /* Verde lima/menta vibrante para segundos acentos */
+    --color-error: #f87171;        /* Mantiene el rojo para la semántica de errores */
+    --borde-sutil: rgba(255, 255, 255, 0.04);
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: system-ui, -apple-system, BlinkMacSystemFont, sans-serif;
+    background-color: var(--bg-ambiente);
+    color: var(--texto-principal);
+    line-height: 1.6;
+    padding: 2rem;
+    min-height: 100vh;
+    position: relative;
+    overflow-x: hidden;
+}
+
+.orbe-decorativo {
+    position: absolute;
+    top: 5%;
+    right: -5%;
+    width: 600px;
+    height: 600px;
+    background: radial-gradient(circle, rgba(74, 222, 128, 0.04) 0%, rgba(0,0,0,0) 70%);
+    z-index: -1;
+    pointer-events: none;
+}
+
+/* SUBMENÚ SUPERIOR MODIFICADO (ESTILO EXACTO A LA IMAGEN) */
+.header-tema {
+    max-width: 1100px;
+    margin: 0 auto 2.5rem auto;
+    border-bottom: 1px solid var(--borde-sutil);
+    padding-bottom: 1.25rem;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.btn-regresar {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.6rem;
+    color: var(--texto-principal);
+    text-decoration: none;
+    font-size: 1rem;
+    font-weight: 500;
+    transition: color 0.2s ease;
+}
+
+.btn-regresar svg {
+    margin-top: 1px;
+}
+
+.btn-regresar:hover {
+    color: var(--color-firma);
+}
+
+/* Badge estilizado como píldora en el extremo derecho */
+.badge-tema {
+    background: rgba(74, 222, 128, 0.06);
+    color: var(--color-firma);
+    font-size: 0.85rem;
+    font-weight: 600;
+    padding: 0.4rem 1.1rem;
+    border-radius: 50px;
+    border: 1px solid rgba(74, 222, 128, 0.15);
+    letter-spacing: 0.02em;
+}
+
+/* BLOQUE DE TÍTULO UBICADO DEBAJO DEL SUBMENÚ */
+.bloque-titulo-seccion {
+    max-width: 1100px;
+    margin: 0 auto 2rem auto;
+}
+
+.titulo-principal-tema {
+    font-size: 2.2rem;
+    font-weight: 800;
+    letter-spacing: -0.025em;
+    margin-bottom: 0.5rem;
+    background: linear-gradient(to right, #ffffff, #6b7c78);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
+
+.descripcion-tema {
+    color: var(--texto-mutado);
+    font-size: 1rem;
+    max-width: 700px;
+}
+
+.contenedor-tema {
+    max-width: 1100px;
+    margin: 0 auto;
+}
+
+/* CONTENEDORES MÓDULO */
+.bloque-analisis-redes {
+    background: var(--bg-superficie);
+    border: 1px solid var(--borde-sutil);
+    border-radius: 16px;
+    overflow: hidden;
+    backdrop-filter: blur(8px);
+    -webkit-backdrop-filter: blur(8px);
+    margin-bottom: 2.5rem;
+}
+
+.cabecera-analisis-redes {
+    background: rgba(255, 255, 255, 0.02);
+    padding: 1.25rem 1.5rem;
+    border-bottom: 1px solid var(--borde-sutil);
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+}
+
+.etiqueta-frente-redes {
+    background: rgba(74, 222, 128, 0.08);
+    color: var(--color-firma);
+    font-size: 0.75rem;
+    font-weight: 700;
+    padding: 0.3rem 0.6rem;
+    border-radius: 6px;
+    text-transform: uppercase;
+}
+
+.cabecera-analisis-redes h3 { 
+    font-size: 1.2rem; 
+    font-weight: 700;
+}
+
+.cuerpo-analisis-redes {
+    padding: 1.5rem;
+}
+
+.cuerpo-analisis-redes p {
+    color: var(--texto-mutado);
+    margin-bottom: 1rem;
+}
+
+/* TABLAS DE CONTROL */
+.tabla-contenedor {
+    max-height: 280px;
+    overflow-y: auto;
+    border: 1px solid var(--borde-sutil);
+    border-radius: 8px;
+    margin: 1rem 0;
+    background: rgba(0, 0, 0, 0.15);
+}
+
+.tabla-datos {
+    width: 100%;
+    border-collapse: collapse;
+    text-align: center;
+    font-size: 0.9rem;
+}
+
+.tabla-datos th {
+    background: rgba(255, 255, 255, 0.03);
+    color: #ffffff;
+    font-weight: 600;
+    padding: 0.6rem;
+    position: sticky;
+    top: 0;
+    border-bottom: 1px solid var(--borde-sutil);
+}
+
+.tabla-datos td {
+    padding: 0.5rem;
+    color: var(--texto-mutado);
+    border-bottom: 1px solid rgba(255, 255, 255, 0.02);
+}
+
+.tabla-datos tr:hover td {
+    color: var(--color-firma);
+    background: rgba(74, 222, 128, 0.01);
+}
+
+/* REJILLAS KPI */
+.grid-resumen-redes {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 1.25rem;
+    margin: 1.5rem 0;
+}
+
+.tarjeta-resumen-final {
+    background: rgba(255, 255, 255, 0.01);
+    border: 1px solid var(--borde-sutil);
+    border-radius: 12px;
+    padding: 1.25rem 1.5rem;
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+}
+
+.titulo-resumen {
+    font-size: 0.8rem;
+    font-weight: 700;
+    color: var(--texto-mutado);
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+}
+
+.valor-resumen {
+    font-size: 1.65rem;
+    font-weight: 700;
+    color: var(--color-firma);
+}
+
+.tarjeta-resumen-final.verduzco .valor-resumen {
+    color: var(--color-acento-verde);
+}
+
+.text-sm {
+    font-size: 0.9rem !important;
+    font-weight: 400 !important;
+    color: var(--texto-principal) !important;
+    line-height: 1.6;
+}
+
+/* INFORMES Y ALERTAS */
+.caja-reporte-redes {
+    background: rgba(74, 222, 128, 0.02);
+    border-left: 3px solid var(--color-firma);
+    padding: 1.25rem 1.5rem;
+    border-radius: 0 12px 12px 0;
+    margin-top: 1.25rem;
+}
+
+.caja-reporte-redes h5 {
+    color: var(--color-firma);
+    font-size: 0.9rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+    margin-bottom: 0.5rem;
+}
+
+.subtitulo-rockwell {
+    font-size: 1.05rem;
+    font-weight: 700;
+    color: #ffffff;
+    margin-bottom: 0.5rem;
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+}
+
+.subtitulo-rockwell::before {
+    content: '';
+    display: inline-block;
+    width: 6px;
+    height: 6px;
+    background-color: var(--color-firma);
+    border-radius: 50%;
+}
+
+.alerta-texto {
+    background: rgba(248, 113, 113, 0.03);
+    border: 1px dashed rgba(248, 113, 113, 0.2);
+    padding: 0.75rem 1rem;
+    border-radius: 6px;
+    color: var(--texto-principal);
+    font-size: 0.9rem;
+    margin: 1rem 0;
+}
+
+/* ANIMACIÓN */
+.animate-fade {
+    animation: fadeInSuave 0.6s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+}
+
+@keyframes fadeInSuave {
+    from { opacity: 0; transform: translateY(8px); }
+    to { opacity: 1; transform: translateY(0); }
+}

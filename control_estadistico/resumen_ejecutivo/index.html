@@ -1,0 +1,146 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Control Estadístico de la Calidad</title>
+    <link rel="stylesheet" href="../../submenu_global/submenu_global.css">
+    <link rel="stylesheet" href="control_estadistico.css">
+    
+    <script>
+        window.MathJax = {
+            tex: {
+                inlineMath: [['$', '$'], ['\\(', '\\)']],
+                displayMath: [['$$', '$$'], ['\\[', '\\]']]
+            }
+        };
+    </script>
+    <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+</head>
+<body>
+
+    <div class="orbe-decorativo"></div>
+
+    <header class="header-tema">
+        <a href="../../menu/menu.html" class="btn-regresar">
+            <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="19" y1="12" x2="5" y2="12"></line><polyline points="12 19 5 12 12 5"></polyline></svg>
+            Volver al Menú
+        </a>
+        <span class="badge-tema">Tema 02</span>
+    </header>
+
+    <main class="contenedor-tema">
+        <div class="seccion-contenido">
+            <h1 class="titulo-principal">Control Estadístico de la Calidad</h1>
+            <p class="bajada-titulo">Monitoreo Dinámico, Prevención y Análisis de Variabilidad Operativa</p>
+        </div>
+
+        <section class="seccion-contenido">
+            <div class="bloque-abstract">
+                <h4 class="subtitulo-rockwell" style="margin-top: 0; border: none; padding: 0;">1. Abstracción Conceptual y Propósito del Modelo</h4>
+                <p>El modelo de Control Estadístico de la Calidad parte de la premisa de que todo proceso operativo posee un grado inherente de variabilidad. Desde un enfoque estadístico, el objetivo fundamental de esta metodología no es la simple inspección final del producto (la cual resulta tardía y genera pérdidas económicas), sino el monitoreo dinámico y la prevención continua a lo largo del flujo productivo.</p>
+                <p>El modelo busca diferenciar de manera matemática si la dispersión de un proceso responde a <strong>causas comunes</strong> (fluctuaciones normales de carácter aleatorio) o a <strong>causas especiales</strong> (anomalías sistémicas identificables que desestabilizan la operación y requieren intervención inmediata).</p>
+            </div>
+        </section>
+
+        <section class="seccion-contenido">
+            <div class="bloque-analisis-calidad">
+                <div class="cabecera-analisis-calidad">
+                    <span class="etiqueta-frente-calidad">Módulo I</span>
+                    <div>
+                        <h3>2. Estructura Matemática y Diferenciación de Variables</h3>
+                        <span class="sub-linea-calidad">Clasificación de datos recolectados y naturaleza de las ecuaciones aplicadas</span>
+                    </div>
+                </div>
+                
+                <div class="cuerpo-analisis-calidad">
+                    <p>La internalización de este modelo matemático exige la clasificación del tipo de datos recolectados, lo que determina las herramientas analíticas a implementar:</p>
+                    
+                    <div class="tarjeta-especifica-calidad">
+                        <h5>A. Gráficas por Variables ($\bar{X} - R$)</h5>
+                        <p>Diseñadas para características continuas y medibles mediante magnitudes físicas (por ejemplo, la masa neta de un producto agroindustrial). El modelo matemático descompone el comportamiento en dos dimensiones independientes:</p>
+                        
+                        <div class="sub-grid-atributos">
+                            <div class="mini-tarjeta-atributo">
+                                <h6>La Gráfica de Medias ($\bar{X}$)</h6>
+                                <p>Rastrea el centrado general del proceso a lo largo del tiempo, calculando la gran media ($\bar{\bar{X}}$) como la línea central de referencia.</p>
+                            </div>
+                            <div class="mini-tarjeta-atributo">
+                                <h6>La Gráfica de Rangos ($R$)</h6>
+                                <p>Evalúa la magnitud de la dispersión o variabilidad interna del proceso mediante la diferencia entre valores extremos dentro de subgrupos homólogos.</p>
+                            </div>
+                        </div>
+
+                        <div class="destaque-nota-matematica">
+                            <p><strong>Nota de Frontera Probabilística:</strong> Los límites de control estadístico (LCS y LCI) para este par de gráficos no representan límites de tolerancia comercial, sino fronteras probabilísticas calculadas a tres desviaciones estándar ($\pm3\sigma$) a partir de constantes estadísticas estandarizadas, adaptando el tamaño muestral para capturar la variabilidad inter-turno.</p>
+                        </div>
+                    </div>
+
+                    <div class="tarjeta-especifica-calidad">
+                        <h5>B. Gráficas por Atributos (Gráfica $p$)</h5>
+                        <p>Orientadas al análisis de datos discretos mediante conteos categóricos binarios (conforme / no conforme). El núcleo matemático de esta gráfica se rige por una distribución binomial, donde la tasa promedio de rechazo ($\bar{p}$) actúa como eje central.</p>
+                        <p>A diferencia de los gráficos de variables, los límites de control superior e inferior en una gráfica $p$ poseen una <strong>naturaleza dinámica</strong> si el tamaño del lote inspeccionado varía en cada turno, obligando al recálculo probabilístico adaptativo de las bandas de control para cada observación singular.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="seccion-contenido">
+            <div class="bloque-analisis-calidad">
+                <div class="cabecera-analisis-calidad">
+                    <span class="etiqueta-frente-calidad">Módulo II</span>
+                    <div>
+                        <h3>3. Índices de Capacidad y Diagnóstico del Proceso</h3>
+                        <span class="sub-linea-calidad">Disociación entre estabilidad estadística y especificaciones del cliente</span>
+                    </div>
+                </div>
+                
+                <div class="cuerpo-analisis-calidad">
+                    <p>Un componente clave del modelo es la disociación entre la estabilidad estadística (fronteras de control interno) y la capacidad del proceso (márgenes de especificación técnica del cliente). A través de los coeficientes estadísticos $C_p$ y $C_{pk}$, se cuantifica si la planta posee la aptitud de manufacturar bajo las tolerancias exigidas.</p>
+                    
+                    <div class="grid-indices-calidad">
+                        <div class="tarjeta-indice-resultado">
+                            <span class="marcador-indice">Coeficiente Potencial</span>
+                            <h4>Índice $C_p$</h4>
+                            <p>Analiza la amplitud potencial del proceso frente al rango permitido de especificaciones. Si $$C_p < 1$$ el proceso es matemáticamente incapaz de cumplir de manera consistente.</p>
+                        </div>
+                        <div class="tarjeta-indice-resultado penalizado">
+                            <span class="marcador-indice">Corrector de Simetría</span>
+                            <h4>Índice $C_{pk}$</h4>
+                            <p>Actúa como un corrector de simetría que penaliza directamente el descentramiento de la distribución operativa respecto al valor objetivo.</p>
+                        </div>
+                    </div>
+
+                    <div class="destaque-regra">
+                        <p><strong>Diagnóstico de Brecha Matemática ($C_{pk} < C_p$):</strong> Esta diferencia evidencia que, a pesar de que la variabilidad puede estar contenida, la media operativa se encuentra sesgada hacia uno de los extremos de especificación, incrementando la probabilidad de generar desperdicios, reprocesos o producto defectuoso.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="seccion-contenido">
+            <h4 class="subtitulo-rockwell">4. Capacidad de Internalización y Toma de Decisiones</h4>
+            <p>El análisis concluye que el gráfico de control no es un fin ilustrativo, sino un motor de inferencia matemática para la acción correctiva. La detección de patrones anómalos permite diagnosticar fallas físicas en el sistema antes de que ocurran pérdidas masivas:</p>
+            
+            <div class="grid-indices-calidad">
+                <div class="tarjeta-paso-calidad">
+                    <h5>Sesgo Sostenido (Límite Superior)</h5>
+                    <p>Denota un exceso de sobrepeso innecesario en el producto que compromete directamente los márgenes de utilidad y la rentabilidad de la planta.</p>
+                </div>
+                <div class="tarjeta-paso-calidad alerta">
+                    <h5>Violación de Límites (Límite Inferior)</h5>
+                    <p>Refleja deficiencias críticas de selección, dosificación o calibración de maquinaria, arriesgando multas severas y el rechazo aduanero.</p>
+                </div>
+            </div>
+
+            <div class="caja-reporte-calidad">
+                <h5>Conclusión Estratégica</h5>
+                <blockquote>El modelo matemático de control estadístico dota a la organización de un marco riguroso e incontrovertible para decidir de manera científica si un proceso debe ser ajustado, detenido por completo o mantenido bajo una filosofía de mejora continua.</blockquote>
+            </div>
+        </section>
+    </main>
+
+    <script src="../../submenu_global/submenu_global.js"></script>
+    <script src="control_estadistico.js"></script>
+</body>
+</html>

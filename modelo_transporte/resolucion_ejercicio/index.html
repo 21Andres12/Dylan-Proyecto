@@ -1,0 +1,300 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Resolución del Ejercicio: Modelos de Transporte y Asignación</title>
+    <link rel="stylesheet" href="../../submenu_global/submenu_global.css">
+    <link rel="stylesheet" href="styles.css">
+    
+    <script>
+        window.MathJax = {
+            tex: {
+                inlineMath: [['$', '$'], ['\\(', '\\)']],
+                displayMath: [['$$', '$$'], ['\\[', '\\]']]
+            }
+        };
+    </script>
+    <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+</head>
+<body>
+
+    <div class="orbe-decorativo"></div>
+
+    <header class="header-tema">
+        <a href="../../menu/menu.html" class="btn-regresar">
+            <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="19" y1="12" x2="5" y2="12"></line><polyline points="12 19 5 12 12 5"></polyline></svg>
+            Volver al Menú
+        </a>
+        <span class="badge-tema">Tema 05</span>
+    </header>
+
+    <main class="contenedor-tema">
+        <div class="encabezado-seccion-tema">
+            <h1 class="titulo-principal">Transporte y Asignación de Mercancía</h1>
+            <p class="subtitulo-tema">Optimización del flujo logístico desde la zona portuaria de Moín hacia los centros de distribución de la provincia de Limón.</p>
+        </div>
+
+        <section class="seccion-contenido">
+            <h2 class="subtitulo-rockwell">1. Contexto Operativo</h2>
+            <p class="parrafo-comun">Una empresa distribuidora ubicada en Limón recibe mercancía importada en la zona portuaria de Moín. Luego, debe trasladar esa mercancía hacia diferentes centros de distribución localizados en: <strong>Limón Centro, Siquirres, Guápiles y Talamanca</strong>. La empresa cuenta con tres bodegas temporales estratégicas (Moín, Cieneguita y Liverpool) con capacidades de oferta limitadas, y debe satisfacer demandas específicas optimizando el rendimiento de las flotas de transporte disponibles.</p>
+        </section>
+
+        <section class="seccion-contenido">
+            <h2 class="subtitulo-rockwell">2. Parámetros del Modelo de Transporte</h2>
+            
+            <div class="grid-marvin">
+                <div class="tarjeta-probabilidades">
+                    <h5>Oferta Disponible (Bodegas)</h5>
+                    <div class="fila-probabilidad"><span>O1 - Moín:</span> <strong>120 toneladas</strong></div>
+                    <div class="fila-probabilidad"><span>O2 - Cieneguita:</span> <strong>100 toneladas</strong></div>
+                    <div class="fila-probabilidad"><span>O3 - Liverpool:</span> <strong>80 toneladas</strong></div>
+                </div>
+                <div class="tarjeta-probabilidades">
+                    <h5>Demanda Requerida (Centros)</h5>
+                    <div class="fila-probabilidad"><span>D1 - Limón Centro:</span> <strong>70 toneladas</strong></div>
+                    <div class="fila-probabilidad"><span>D2 - Siquirres:</span> <strong>90 toneladas</strong></div>
+                    <div class="fila-probabilidad"><span>D3 - Guápiles:</span> <strong>80 toneladas</strong></div>
+                    <div class="fila-probabilidad"><span>D4 - Talamanca:</span> <strong>60 toneladas</strong></div>
+                </div>
+            </div>
+
+            <div class="bloque-abstract">
+                <p><strong>Estado del Sistema:</strong> La suma total de la oferta ($120 + 100 + 80 = 300\text{ toneladas}$) es igual a la demanda requerida ($70 + 90 + 80 + 60 = 300\text{ toneladas}$). Por lo tanto, nos encontramos ante un <strong>Modelo de Transporte Balanceado</strong>.</p>
+            </div>
+
+            <h4 class="subtitulo-rockwell text-sm margin-top">Matriz de Ganancia por Tonelada (Miles de Colones)</h4>
+            <div class="contenedor-tabla-datos">
+                <table class="tabla-markov">
+                    <thead>
+                        <tr>
+                            <th>Origen / Destino</th>
+                            <th>Limón Centro (D1)</th>
+                            <th>Siquirres (D2)</th>
+                            <th>Guápiles (D3)</th>
+                            <th>Talamanca (D4)</th>
+                            <th>Oferta</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td><strong>Moín (O1)</strong></td>
+                            <td>$16$</td>
+                            <td>$11$</td>
+                            <td>$8$</td>
+                            <td>$5$</td>
+                            <td><strong>120</strong></td>
+                        </tr>
+                        <tr>
+                            <td><strong>Cieneguita (O2)</strong></td>
+                            <td>$15$</td>
+                            <td>$12$</td>
+                            <td>$9$</td>
+                            <td>$6$</td>
+                            <td><strong>100</strong></td>
+                        </tr>
+                        <tr>
+                            <td><strong>Liverpool (O3)</strong></td>
+                            <td>$14$</td>
+                            <td>$13$</td>
+                            <td>$10$</td>
+                            <td>$7$</td>
+                            <td><strong>80</strong></td>
+                        </tr>
+                        <tr class="fila-total">
+                            <td><strong>Demanda</strong></td>
+                            <td><strong>70</strong></td>
+                            <td><strong>90</strong></td>
+                            <td><strong>80</strong></td>
+                            <td><strong>60</strong></td>
+                            <td><strong>300</strong></td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </section>
+
+        <section class="seccion-contenido">
+            <h2 class="subtitulo-rockwell">3. Parámetros del Modelo de Asignación</h2>
+            <p class="parrafo-comun">Se dispone de cuatro camiones para cubrir las rutas de manera exclusiva hacia los centros de distribución. Cada camión cuenta con una tasa de rendimiento diferenciada debido a las condiciones viales de Limón:</p>
+
+            <div class="contenedor-tabla-datos">
+                <table class="tabla-markov">
+                    <thead>
+                        <tr>
+                            <th>Camión / Ruta</th>
+                            <th>Limón Centro</th>
+                            <th>Siquirres</th>
+                            <th>Guápiles</th>
+                            <th>Talamanca</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td><strong>Camión 1</strong></td>
+                            <td>$90$</td>
+                            <td>$75$</td>
+                            <td>$70$</td>
+                            <td>$60$</td>
+                        </tr>
+                        <tr>
+                            <td><strong>Camión 2</strong></td>
+                            <td>$80$</td>
+                            <td>$88$</td>
+                            <td>$82$</td>
+                            <td>$74$</td>
+                        </tr>
+                        <tr>
+                            <td><strong>Camión 3</strong></td>
+                            <td>$70$</td>
+                            <td>$78$</td>
+                            <td>$92$</td>
+                            <td>$85$</td>
+                        </tr>
+                        <tr>
+                            <td><strong>Camión 4</strong></td>
+                            <td>$75$</td>
+                            <td>$80$</td>
+                            <td>$86$</td>
+                            <td>$95$</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </section>
+
+        <section class="seccion-contenido">
+            <h2 class="subtitulo-rockwell">4. Planteamiento Matemático Formal</h2>
+            <p class="parrafo-comun">Sea $X_{ij}$ la cantidad de toneladas a transportar desde el origen $i$ ($i = 1, 2, 3$) hacia el destino $j$ ($j = 1, 2, 3, 4$).</p>
+            
+            <h4 class="subtitulo-rockwell text-sm">Función Objetivo</h4>
+            <div class="bloque-matriz-desarrollo">
+                $$\text{Maximizar } Z = 16X_{11} + 11X_{12} + 8X_{13} + 5X_{14} + 15X_{21} + 12X_{22} + 9X_{23} + 6X_{24} + 14X_{31} + 13X_{32} + 10X_{33} + 7X_{34}$$
+            </div>
+
+            <h4 class="subtitulo-rockwell text-sm">Restricciones de Oferta (Bodegas)</h4>
+            <div class="bloque-matriz-desarrollo">
+                $$\begin{aligned}
+                X_{11} + X_{12} + X_{13} + X_{14} &\le 120 \quad \text{(Moín)} \\
+                X_{21} + X_{22} + X_{23} + X_{24} &\le 100 \quad \text{(Cieneguita)} \\
+                X_{31} + X_{32} + X_{33} + X_{34} &\le 80 \quad \text{(Liverpool)}
+                \end{aligned}$$
+            </div>
+
+            <h4 class="subtitulo-rockwell text-sm">Restricciones de Demanda (Destinos)</h4>
+            <div class="bloque-matriz-desarrollo">
+                $$\begin{aligned}
+                X_{11} + X_{21} + X_{31} &= 70 \quad \text{(Limón Centro)} \\
+                X_{12} + X_{22} + X_{32} &= 90 \quad \text{(Siquirres)} \\
+                X_{13} + X_{23} + X_{33} &= 80 \quad \text{(Guápiles)} \\
+                X_{14} + X_{24} + X_{34} &= 60 \quad \text{(Talamanca)}
+                \end{aligned}$$
+            </div>
+
+            <h4 class="subtitulo-rockwell text-sm">Condición de No Negatividad</h4>
+            <div class="bloque-matriz-desarrollo">
+                $$X_{ij} \ge 0 \quad \forall i, j$$
+            </div>
+        </section>
+
+        <section class="seccion-contenido">
+            <h2 class="subtitulo-rockwell">5. Método de Aproximación de Vogel (Transformación)</h2>
+            <p class="parrafo-comun">Dado que el objetivo es maximizar las utilidades, es obligatorio convertir la matriz de ganancias restando cada elemento del valor máximo global de la tabla ($16$). Esto nos da la matriz de costo de oportunidad:</p>
+
+            <div class="contenedor-tabla-datos">
+                <table class="tabla-markov">
+                    <thead>
+                        <tr>
+                            <th>Origen / Destino</th>
+                            <th>Limón Centro</th>
+                            <th>Siquirres</th>
+                            <th>Guápiles</th>
+                            <th>Talamanca</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td><strong>Moín</strong></td>
+                            <td>$16 - 16 = 0$</td>
+                            <td>$16 - 11 = 5$</td>
+                            <td>$16 - 8 = 8$</td>
+                            <td>$16 - 5 = 11$</td>
+                        </tr>
+                        <tr>
+                            <td><strong>Cieneguita</strong></td>
+                            <td>$16 - 15 = 1$</td>
+                            <td>$16 - 12 = 4$</td>
+                            <td>$16 - 9 = 7$</td>
+                            <td>$16 - 6 = 10$</td>
+                        </tr>
+                        <tr>
+                            <td><strong>Liverpool</strong></td>
+                            <td>$16 - 14 = 2$</td>
+                            <td>$16 - 13 = 3$</td>
+                            <td>$16 - 10 = 6$</td>
+                            <td>$16 - 7 = 9$</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </section>
+
+        <section class="seccion-contenido final-box">
+            <h2 class="subtitulo-rockwell">6. Método Húngaro (Transformación de Asignación)</h2>
+            <p class="parrafo-comun">Definimos $Y_{ij} = 1$ si el camión $i$ se asigna a la ruta $j$, y $Y_{ij} = 0$ en caso contrario. Para maximizar el rendimiento con el algoritmo húngaro estándar, restamos cada valor del rendimiento máximo absoluto del sistema ($95$).</p>
+
+            <div class="contenedor-tabla-datos">
+                <table class="tabla-markov">
+                    <thead>
+                        <tr>
+                            <th>Camión / Ruta</th>
+                            <th>Limón Centro</th>
+                            <th>Siquirres</th>
+                            <th>Guápiles</th>
+                            <th>Talamanca</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td><strong>Camión 1</strong></td>
+                            <td>$95 - 90 = 5$</td>
+                            <td>$95 - 75 = 20$</td>
+                            <td>$95 - 70 = 25$</td>
+                            <td>$95 - 60 = 35$</td>
+                        </tr>
+                        <tr>
+                            <td><strong>Camión 2</strong></td>
+                            <td>$95 - 80 = 15$</td>
+                            <td>$95 - 88 = 7$</td>
+                            <td>$95 - 82 = 13$</td>
+                            <td>$95 - 74 = 21$</td>
+                        </tr>
+                        <tr>
+                            <td><strong>Camión 3</strong></td>
+                            <td>$95 - 70 = 25$</td>
+                            <td>$95 - 78 = 17$</td>
+                            <td>$95 - 92 = 3$</td>
+                            <td>$95 - 85 = 10$</td>
+                        </tr>
+                        <tr>
+                            <td><strong>Camión 4</strong></td>
+                            <td>$95 - 75 = 20$</td>
+                            <td>$95 - 80 = 15$</td>
+                            <td>$95 - 86 = 9$</td>
+                            <td>$95 - 95 = 0$</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+
+            <div class="caja-reporte margin-top">
+                <h5>Conclusión de Diseño Logístico</h5>
+                <blockquote>Las transformaciones matemáticas aplicadas habilitan el uso directo de algoritmos eficientes en Excel QM. Esto asegura el menor costo de oportunidad de distribución viales y maximiza de forma integral las ganancias de transporte de mercancía en la región del Caribe.</blockquote>
+            </div>
+        </section>
+    </main>
+
+    <script src="../../submenu_global/submenu_global.js"></script>
+    <script src="script.js"></script>
+</body>
+</html>

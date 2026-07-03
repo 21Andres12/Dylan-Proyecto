@@ -1,0 +1,157 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Modelos de Transporte y Asignación - Portafolio</title>
+    <link rel="stylesheet" href="../../submenu_global/submenu_global.css">
+    <link rel="stylesheet" href="modelo_transporte.css">
+</head>
+<body>
+
+    <div class="orbe-decorativo"></div>
+
+    <header class="header-tema">
+        <a href="../../menu/menu.html" class="btn-regresar">
+            <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="19" y1="12" x2="5" y2="12"></line><polyline points="12 19 5 12 12 5"></polyline></svg>
+            Volver al Menú
+        </a>
+        <span class="badge-tema">Tema 05</span>
+    </header>
+
+    <main class="contenedor-tema">
+        
+        <section class="introduccion-tema animate-fade">
+            <h1 class="titulo-principal">Transporte y Asignación</h1>
+            <p class="bajada-titulo">Resumen Ejecutivo: Modelo de Transporte</p>
+            <div class="bloque-abstract">
+                <p>Los Modelos de Transporte y Asignación son algoritmos de programación lineal estructurados para optimizar la distribución física de recursos limitados. Su objetivo matemático central es determinar la combinación óptima de envíos desde un conjunto de puntos de origen (oferta) hacia un conjunto de puntos de destino (demanda), minimizando el costo total de fricción logística o, en escenarios inversos, maximizando la rentabilidad del sistema.</p>
+            </div>
+        </section>
+
+        <section class="seccion-contenido animate-fade">
+            <h2 class="subtitulo-rockwell">Ejemplo Práctico: El Director de Logística</h2>
+            <p>Imagina que eres el director de logística de una empresa de refrescos. Tienes <strong>3 fábricas</strong> en diferentes partes del país (estos son tus puntos de origen o la oferta) y tienes que mandar camiones cargados de refrescos a <strong>3 grandes supermercados</strong> en diferentes ciudades (estos son tus puntos de destino o la demanda).</p>
+
+            <div class="destaque-regra problema">
+                <p><strong>El problema:</strong> Cada fábrica tiene una cantidad límite de refrescos que puede producir, y cada supermercado te exige una cantidad exacta que necesita recibir. Además, enviar un camión de la Fábrica A al Supermercado 1 cuesta un precio, pero mandarlo al Supermercado 2 cuesta otro precio totalmente diferente porque está más lejos o la carretera es más difícil.</p>
+            </div>
+
+            <div class="grid-enfoques">
+                <div class="caja-enfoque">
+                    <h4>El Objetivo Estándar (Minimizar Costos)</h4>
+                    <p>Si empiezas a mandar camiones "a ojo" o por pura intuición, lo más seguro es que termines gastando muchísimo dinero en gasolina y peajes. Este modelo calcula y te dice exactamente: <em>"Manda 5 camiones de la Fábrica A al Supermercado 3, manda 2 de la Fábrica B al Supermercado 1..."</em> para cumplir con lo solicitado gastando la menor cantidad de dinero posible.</p>
+                </div>
+                <div class="caja-enfoque acento">
+                    <h4>El Escenario Inverso (Maximizar Ganancias)</h4>
+                    <p>A veces el problema no es el costo del viaje, sino el precio al que vendes el producto. Si en el Supermercado 3 pagan el refresco más caro que en los otros, la matemática cambia por completo y el modelo te dirá cómo repartir los camiones para ganar la mayor cantidad de dinero posible.</p>
+                </div>
+            </div>
+        </section>
+
+        <section class="seccion-contenido animate-fade">
+            <h2 class="subtitulo-rockwell">Herramientas Secuenciales del Marco Analítico</h2>
+            <p>El marco analítico abordado en la investigación se compone de tres herramientas esenciales ejecutadas en secuencia:</p>
+
+            <div class="timeline-logistica">
+
+                <div class="timeline-item">
+                    <div class="timeline-badge">1</div>
+                    <div class="timeline-panel">
+                        <h3 class="titulo-fase">Método de Aproximación de Vogel (MAV)</h3>
+                        <span class="subtitulo-fase">Algoritmo Heurístico de Asignación Inicial</span>
+                        
+                        <p class="descripcion-fase">Es un algoritmo diseñado para dar una solución inicial de transporte de alta calidad. A diferencia de métodos viejos o más simples (como la <strong>Esquina Noroeste</strong>), que empiezan a llenar los camiones en orden según aparecen en la tabla con los ojos vendados ante los precios, Vogel trabaja de forma inteligente con el concepto de <strong>costo de penalización</strong>.</p>
+                        
+                        <div class="caja-analogia">
+                            <h5>Las Dos Ideas Clave de Vogel:</h5>
+                            <ul>
+                                <li><strong>El costo de penalización (El "castigo"):</strong> En lugar de ver solo el precio más barato, Vogel mira los dos precios más bajos de cada fila y cada columna de tu tabla y los resta. El resultado de esa resta es el "castigo" o la multa económica que tendrías que pagar si dejas pasar la oportunidad de usar la ruta más barata y te ves obligado a usar la que le sigue.</li>
+                                <li><strong>Priorizar el peor escenario:</strong> Vogel revisa todas las filas y columnas, busca cuál tiene la penalización más alta (donde sería el golpe más duro para tu bolsillo si te equivocas) y asegura ese envío de primero. Es como decir: <em>"Si no aseguro esta ruta ya mismo, la otra opción me va a salir carísima, así que la resuelvo de inmediato"</em>.</li>
+                            </ul>
+                        </div>
+                        
+                        <p class="consecuencia-matematica" style="margin-top: 1rem;">Al hacer esto paso a paso (calcular castigos, elegir el peor y asignar la mercancía), el método va cerrando las rutas más peligrosas económicamente. Es como ir de compras y revisar primero los pasillos donde los productos cambian más drásticamente de precio; asegura comprar ahí antes de que se acaben las ofertas para evitar pagar el doble. Desde el primer intento, deja una solución que ya es casi perfecta y súper barata.</p>
+                    </div>
+                </div>
+
+                <div class="timeline-item">
+                    <div class="timeline-badge">2</div>
+                    <div class="timeline-panel">
+                        <h3 class="titulo-fase">Método del Salto de Piedra (Stepping-Stone)</h3>
+                        <span class="subtitulo-fase">Procedimiento Iterativo de Optimización Global</span>
+                        
+                        <p class="descripcion-fase">Es un procedimiento iterativo de optimización global. Partiendo de la solución inicial de Vogel, este método evalúa el impacto financiero de reasignar una unidad de carga a las celdas vacías (rutas no utilizadas). Para ello, traza circuitos cerrados ortogonales (bucles de "saltos") que permiten calcular el índice de mejora.</p>
+                        
+                        <div class="caja-analogia" style="border-left-color: var(--color-acento-verde);">
+                            <h5>Analogía: Cruzar el estanque caminando sobre las piedras</h5>
+                            <p style="font-size: 0.9rem; margin-bottom: 0.75rem;">Imagínate que estás frente a un estanque de agua y quieres cruzarlo caminando sobre unas piedras que sobresalen de la superficie. En este estanque hay dos tipos de piedras:</p>
+                            
+                            <div class="grid-piedras">
+                                <div class="piedra-card firme">
+                                    <h6>Las Piedras Firmes</h6>
+                                    <p>Son las rutas que ya estás usando para enviar tus camiones (las que calculaste antes con el método de Vogel). Como ya tienen carga, están "sólidas" y te puedes parar en ellas de forma segura.</p>
+                                </div>
+                                <div class="piedra-card vacia">
+                                    <h6>Las Piedras Flotantes o Vacías</h6>
+                                    <p>Son las rutas que no estás usando actualmente (están en cero). No sabes si aguantarán tu peso o si te convienen económicamente para tu distribución.</p>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="caja-resultado-matematico" style="margin-top: 1.25rem;">
+                            <h5>Pasos del Algoritmo para Evaluar Rutas:</h5>
+                            <ol class="lista-pasos-detallada">
+                                <li><strong>Dar el salto a una celda vacía:</strong> Eliges una ruta que esté vacía y haces de cuenta que mandas un solo camión por ahí.</li>
+                                <li><strong>Armar el circuito cerrado (Los "saltos"):</strong> Para ver cómo afecta ese cambio a las demás rutas, tienes que avanzar saltando únicamente en forma horizontal o vertical (ortogonal), apoyándote solo en las piedras que sí están firmes (las que tienen carga), hasta regresar exactamente al punto donde empezaste formando un bucle cerrado.</li>
+                                <li><strong>Calcular el índice de mejora (Hacer la suma y resta):</strong> Al recorrer ese camino, vas sumando el costo de las rutas donde aumentaste carga y restando el de las rutas donde tuviste que quitarla para mantener el equilibrio de oferta y demanda.</li>
+                            </ol>
+
+                            <div class="indicador-valores" style="margin-top: 1rem;">
+                                <div class="resultado-valor negativo">
+                                    <strong>Si el número da negativo:</strong> ¡Buenas noticias! Significa que si empiezas a usar esa ruta, el costo total de la empresa va a bajar. Te conviene mover los camiones hacia allá.
+                                </div>
+                                <div class="resultado-valor positivo">
+                                    <strong>Si todos los números dan mayores o iguales a cero (positivos):</strong> Significa que cualquier cambio que intentes hacer solo va a volver los envíos más caros o iguales. Se demuestra matemáticamente que se ha alcanzado la optimización absoluta del sistema.
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="timeline-item">
+                    <div class="timeline-badge">3</div>
+                    <div class="timeline-panel">
+                        <h3 class="titulo-fase">Variación por Maximización</h3>
+                        <span class="subtitulo-fase">Modificación Estructural del Modelo</span>
+                        
+                        <p class="descripcion-fase">Modificación estructural del modelo para escenarios donde la variable de decisión no es el costo de transporte, sino el margen de ganancia o utilidad por unidad enviada. Metodológicamente, se resuelve transformando la matriz original mediante la resta de cada elemento al valor más alto de la tabla, convirtiendo de manera matemática un problema de maximización en uno de minimización equivalente.</p>
+                        
+                        <div class="caja-truco">
+                            <h5>El Ingenioso Truco en Dos Pasos:</h5>
+                            <p style="font-size: 0.9rem; color: var(--texto-mutado); margin-bottom: 0.75rem;">Normalmente el algoritmo de transporte viene programado de fábrica para cumplir una sola misión: buscar los números más pequeños (minimizar costos). Para hacer que busque ganancias sin tener que inventar un algoritmo nuevo, se hace lo siguiente:</p>
+                            
+                            <ol class="pasos-truco" style="margin-left: 1.25rem; font-size: 0.9rem; color: #cbd5e1;">
+                                <li><strong>Encontrar al "Rey de las Ganancias":</strong> Revisas toda tu tabla y buscas cuál es el número más alto de todos (la ruta que te da la mayor ganancia de todo el negocio). Supongamos que es <strong>$100</strong>.</li>
+                                <li><strong>El truco de la resta (La transformación):</strong> A ese número $100 le vas a restar cada una de las ganancias individuales de la tabla.
+                                    <ul style="margin-left: 1.25rem; margin-top: 0.5rem; color: var(--texto-mutado); list-style-type: square;">
+                                        <li>Si una ruta te daba la ganancia máxima de $100, ahora queda en $100 - 100 = <strong>$0</strong> (cero costos, ¡atractivísimo para el algoritmo!).</li>
+                                        <li>Si otra ruta era malísima y solo te daba $10 de ganancia, ahora queda en $100 - 10 = <strong>$90</strong> (un costo altísimo, por lo que el algoritmo la va a evitar por completo).</li>
+                                    </ul>
+                                </li>
+                            </ol>
+
+                            <p class="utilidad-texto" style="margin-top: 1rem;">Al hacer esta resta con todas las celdas, conviertes mágicamente tu tabla de <strong>"ganancias"</strong> en una tabla de <strong>"costos de oportunidad"</strong> (lo que dejas de ganar por no elegir la mejor ruta). Al entregársela al algoritmo de siempre (como Vogel o Salto de Piedra), él buscará los números más bajos, pero al minimizar los arrepentimientos estará, en realidad, <strong>maximizando tus ganancias reales</strong>.</p>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </section>
+
+    </main>
+
+    <script src="../../submenu_global/submenu_global.js"></script>
+    <script src="modelo_transporte.js"></script>
+</body>
+</html>

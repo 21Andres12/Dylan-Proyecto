@@ -1,0 +1,268 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Resolución paso a paso: Caso Markov de supermercados en Limón</title>
+    <link rel="stylesheet" href="../../submenu_global/submenu_global.css">
+    <link rel="stylesheet" href="styles.css">
+    <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/input/mathml.js"></script>
+</head>
+<body>
+
+    <div class="orbe-decorativo"></div>
+
+    <header class="header-tema">
+        <a href="../../menu/menu.html" class="btn-regresar">
+            <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="19" y1="12" x2="5" y2="12"></line><polyline points="12 19 5 12 12 5"></polyline></svg>
+            Volver al Menú
+        </a>
+        <span class="badge-tema">Tema 01</span>
+    </header>
+
+    <main class="contenedor-tema animate-fade">
+        <div class="seccion-contenido">
+            <h1 class="titulo-principal">Resolución paso a paso: Caso Markov de supermercados en Limón</h1>
+            <p class="bajada-titulo">Cadenas: Maxi Palí (M), Megasuper (G) y Locales (L)</p>
+        </div>
+
+        <section class="seccion-contenido">
+            <h2 class="subtitulo-rockwell">1. Planteamiento del caso</h2>
+            <p>El comercio minorista en Limón se reparte entre tres alternativas principales: Maxi Palí, Megasuper y comercios locales. Se desea pronosticar cómo cambiaría la participación de mercado durante los próximos dos períodos y determinar el estado estable de largo plazo. Un período equivale a un año.</p>
+            <p>El modelo de Markov se usa porque las familias pueden permanecer comprando en la misma cadena o cambiarse a otra según precios, promociones, ubicación, filas o cercanía al hogar y al trabajo.</p>
+        </section>
+
+        <section class="seccion-contenido">
+            <h2 class="subtitulo-rockwell">2. Datos del problema</h2>
+            
+            <div class="grid-variables">
+                <div class="tarjeta-variable clear-border">
+                    <h4>Participación Inicial</h4>
+                    <table class="tabla-datos-ejercicio">
+                        <thead>
+                            <tr>
+                                <th>Estado</th>
+                                <th>Significado</th>
+                                <th>Participación inicial</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr><td><strong>M</strong></td><td>Maxi Palí</td><td>0.45 = 45%</td></tr>
+                            <tr><td><strong>G</strong></td><td>Megasuper</td><td>0.35 = 35%</td></tr>
+                            <tr><td><strong>L</strong></td><td>Locales</td><td>0.20 = 20%</td></tr>
+                        </tbody>
+                    </table>
+                    <p class="vector-destacado">π(0) = [0.45, 0.35, 0.20]</p>
+                </div>
+
+                <div class="tarjeta-variable clear-border">
+                    <h4>Matriz de Transición (P)</h4>
+                    <p class="nota-lealtad">La diagonal de la matriz representa la permanencia o lealtad de los clientes. Por ejemplo, 0.88 significa que el 88% de los clientes de Maxi Palí permanecen en Maxi Palí durante el siguiente año.</p>
+                    
+                    <table class="tabla-datos-ejercicio text-center">
+                        <thead>
+                            <tr>
+                                <th>Desde / Hacia</th>
+                                <th>M</th>
+                                <th>G</th>
+                                <th>L</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr><td><strong>Desde M</strong></td><td>0.88</td><td>0.07</td><td>0.05</td></tr>
+                            <tr><td><strong>Desde G</strong></td><td>0.10</td><td>0.85</td><td>0.05</td></tr>
+                            <tr><td><strong>Desde L</strong></td><td>0.15</td><td>0.10</td><td>0.75</td></tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </section>
+
+        <section class="seccion-contenido">
+            <h2 class="subtitulo-rockwell">3. Cálculo de π(1)</h2>
+            <p>Se utiliza la fórmula:</p>
+            <p class="vector-destacado">π(n+1) = π(n) ⋅ P</p>
+            <p>Para el primer período:</p>
+            <p class="vector-destacado">π(1) = π(0) ⋅ P </p>
+
+            <div class="bloque-procedimiento">
+                <div class="desglose-ecuacion">
+                    <p><strong>M:</strong> 0.45(0.88) + 0.35(0.10) + 0.20(0.15) = 0.4610</p>
+                    <p><strong>G:</strong> 0.45(0.07) + 0.35(0.85) + 0.20(0.10) = 0.3490</p>
+                    <p><strong>L:</strong> 0.45(0.05) + 0.35(0.05) + 0.20(0.75) = 0.1900</p>
+                </div>
+            </div>
+
+            <table class="tabla-pronostico-final">
+                <thead>
+                    <tr>
+                        <th>Cadena</th>
+                        <th>Resultado π(1)</th>
+                        <th>Porcentaje</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr><td><strong>Maxi Palí</strong></td><td>0.4610</td><td>46.10%</td></tr>
+                    <tr><td><strong>Megasuper</strong></td><td>0.3490</td><td>34.90%</td></tr>
+                    <tr><td><strong>Locales</strong></td><td>0.1900</td><td>19.00%</td></tr>
+                </tbody>
+            </table>
+        </section>
+
+        <section class="seccion-contenido">
+            <h2 class="subtitulo-rockwell">4. Cálculo de π(2)</h2>
+            <p>Ahora se usa π(1) como nuevo vector actual:</p>
+            <p class="vector-destacado">π(2) = π(1) ⋅ P</p>
+            <p class="vector-destacado">π(1) = [0.4610, 0.3490, 0.1900]</p>
+
+            <div class="bloque-procedimiento">
+                <div class="desglose-ecuacion">
+                    <p><strong>M:</strong> 0.4610(0.88) + 0.3490(0.10) + 0.1900(0.15) = 0.46908</p>
+                    <p><strong>G:</strong> 0.4610(0.07) + 0.3490(0.85) + 0.1900(0.10) = 0.34792</p>
+                    <p><strong>L:</strong> 0.4610(0.05) + 0.3490(0.05) + 0.1900(0.75) = 0.18300</p>
+                </div>
+            </div>
+
+            <table class="tabla-pronostico-final">
+                <thead>
+                    <tr>
+                        <th>Cadena</th>
+                        <th>Resultado π(2)</th>
+                        <th>Porcentaje</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr><td><strong>Maxi Palí</strong></td><td>0.46908</td><td>46.91%</td></tr>
+                    <tr><td><strong>Megasuper</strong></td><td>0.34792</td><td>34.79%</td></tr>
+                    <tr><td><strong>Locales</strong></td><td>0.18300</td><td>18.30%</td></tr>
+                </tbody>
+            </table>
+        </section>
+
+        <section class="seccion-contenido">
+            <h2 class="subtitulo-rockwell">5. Tabla de pronóstico</h2>
+            <table class="tabla-pronostico-final">
+                <thead>
+                    <tr>
+                        <th>Período</th>
+                        <th>Maxi Palí</th>
+                        <th>Megasuper</th>
+                        <th>Locales</th>
+                        <th>Suma</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr><td><strong>0</strong></td><td>0.45000</td><td>0.35000</td><td>0.20000</td><td>1.00000</td></tr>
+                    <tr><td><strong>1</strong></td><td>0.46100</td><td>0.34900</td><td>0.19000</td><td>1.00000</td></tr>
+                    <tr><td><strong>2</strong></td><td>0.46908</td><td>0.34792</td><td>0.18300</td><td>1.00000</td></tr>
+                </tbody>
+            </table>
+            <div class="destaque-regra">
+                <p>La suma debe dar 1 porque representa el 100% del mercado. Si en una tabla aparece 0.9999 o 1.0001, normalmente es por redondeo.</p>
+            </div>
+        </section>
+
+        <section class="seccion-contenido">
+            <h2 class="subtitulo-rockwell">6. Estado estable usando sistema en calculadora:</h2>
+            <p>El estado estable busca la distribución que ya no cambia al multiplicarse por la matriz de transición. Se plantea:</p>
+            <p class="vector-destacado">π = π · P</p>
+            <p>Sea π = [M, G, L]. Entonces:</p>
+            
+            <div class="bloque-procedimiento">
+                <div class="desglose-ecuacion text-center">
+                    <p>M = 0.88M + 0.10G + 0.15L</p>
+                    <p>G = 0.07M + 0.85G + 0.10L</p>
+                    <p>L = 0.05M + 0.05G + 0.75L</p>
+                    <p>M + G + L = 1</p>
+                </div>
+            </div>
+
+            <p>Para resolverlo de forma más práctica, se acomodan dos ecuaciones de Markov y se agrega la condición de que las participaciones suman 1.</p>
+            <p>Procedemos a despejar las ecuaciones:</p>
+            <div class="bloque-procedimiento">
+                <div class="desglose-ecuacion text-center">
+                    <p>M - 0.88M - 0.10G - 0.15L = 0</p>
+                    <p>G - 0.07M - 0.85G - 0.10L = 0</p>
+                </div>
+            </div>
+
+            <p>Se simplifica:</p>
+            <div class="bloque-procedimiento">
+                <div class="desglose-ecuacion text-center">
+                    <p>0.12M - 0.10G - 0.15L = 0</p>
+                    <p>-0.07M + 0.15G - 0.10L = 0</p>
+                </div>
+            </div>
+
+            <p>Así se obtiene el sistema que se puede ingresar directamente en la calculadora:</p>
+            <div class="bloque-procedimiento">
+                <div class="desglose-ecuacion text-center">
+                    <p>0.12M - 0.10G - 0.15L = 0</p>
+                    <p>-0.07M + 0.15G - 0.10L = 0</p>
+                    <p>1M + 1G + 1L = 1</p>
+                </div>
+            </div>
+
+            <h5>Forma para meterlo en la calculadora como sistema 3x3:</h5>
+            <table class="tabla-pronostico-final matrix-inputs">
+                <thead>
+                    <tr>
+                        <th>Ecuación</th>
+                        <th>Coef. M</th>
+                        <th>Coef. G</th>
+                        <th>Coef. L</th>
+                        <th>Resultado</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr><td><strong>1</strong></td><td>0.12</td><td>-0.10</td><td>-0.15</td><td>0</td></tr>
+                    <tr><td><strong>2</strong></td><td>-0.07</td><td>0.15</td><td>-0.10</td><td>0</td></tr>
+                    <tr><td><strong>3</strong></td><td>1</td><td>1</td><td>1</td><td>1</td></tr>
+                </tbody>
+            </table>
+
+            <p>Al resolver el sistema en la calculadora, se obtiene:</p>
+            <div class="bloque-procedimiento">
+                <div class="desglose-ecuacion text-center">
+                    <p>M = 0.4924</p>
+                    <p>G = 0.3409</p>
+                    <p>L = 0.1667</p>
+                </div>
+            </div>
+            
+            <p class="vector-destacado">π = [0.4924, 0.3409, 0.1667]</p>
+
+            <div class="caja-uso-mc transformador">
+                <h5>Distribución de Equilibrio de Estado Estable:</h5>
+                <div class="grid-variables numbers-estable">
+                    <div class="tarjeta-variable text-center"><strong>Maxi Palí</strong><span class="val-final">49.24%</span>(0.4924) </div>
+                    <div class="tarjeta-variable text-center"><strong>Megasuper</strong><span class="val-final">34.09%</span>(0.3409) </div>
+                    <div class="tarjeta-variable text-center"><strong>Locales</strong><span class="val-final">16.67%</span>(0.1667) </div>
+                </div>
+            </div>
+
+            <div class="destaque-regra margin-top">
+                <p><strong>Nota:</strong> Se usan solo dos ecuaciones de Markov porque las tres ecuaciones dependen entre sí. La tercera se reemplaza por M+G+L=1 para asegurar que el resultado represente el 100% del mercado.</p>
+            </div>
+        </section>
+
+        <section class="seccion-contenido final-box">
+            <h2 class="subtitulo-rockwell">7. Interpretación final</h2>
+            <p>En los dos primeros períodos, Maxi Palí aumenta su participación de 45.00% a 46.10% y luego a 46.91%. Megasuper baja levemente de 35.00% a 34.79%, mientras que los comercios locales bajan de 20.00% a 18.30%.</p>
+            <p>El estado estable indica que, si las probabilidades de permanencia y cambio se mantienen iguales en el tiempo, el mercado tendería a estabilizarse aproximadamente en <strong>49.24% para Maxi Palí</strong>, <strong>34.09% para Megasuper</strong> y <strong>16.67% para los locales.</strong></p>
+            
+            <div class="bloque-abstract margin-top">
+                <p>Por lo tanto, la cadena que gana en el largo plazo es <strong>Maxi Palí</strong>, porque alcanza la mayor participación de mercado.</p>
+            </div>
+
+            <div class="caja-reporte">
+                <h5>Recomendación Estratégica</h5>
+                <blockquote>Megasuper debería enfocarse en mejorar su retención de clientes y reducir la fuga hacia Maxi Palí mediante promociones, mejores precios, servicio al cliente, variedad de productos y programas de fidelización.</blockquote>
+            </div>
+        </section>
+    </main>
+
+    <script src="../../submenu_global/submenu_global.js"></script>
+    <script src="script.js"></script>
+</body>
+</html>

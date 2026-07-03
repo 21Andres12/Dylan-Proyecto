@@ -1,0 +1,293 @@
+/* ==========================================================================
+   1. VARIABLES DE ENTORNO Y CONFIGURACIÓN (SISTEMA DE DISEÑO)
+   ========================================================================== */
+:root {
+    --bg-ambiente: #060f0e;       /* Verde bosque extremadamente oscuro y elegante */
+    --bg-superficie: rgba(16, 36, 32, 0.4); /* Superficie translúcida con matiz verde */
+    --texto-principal: #f0fdf4;   /* Blanco con un levísimo toque menta */
+    --texto-mutado: #6b7c78;      /* Gris verdoso sutil */
+    --color-firma: #4ade80;       /* Verde esmeralda brillante para acentos principales */
+    --color-acento-verde: #a3e635; /* Verde lima/menta vibrante para segundos acentos */
+    --borde-sutil: rgba(255, 255, 255, 0.04);
+}
+
+/* Reset Global */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: system-ui, -apple-system, BlinkMacSystemFont, sans-serif;
+    background-color: var(--bg-ambiente);
+    color: var(--texto-principal);
+    line-height: 1.6;
+    padding: 3rem 2rem;
+    min-height: 100vh;
+    position: relative;
+    overflow-x: hidden;
+}
+
+/* Fondo Atmosférico / Orbe */
+.orbe-decorativo {
+    position: absolute;
+    top: 10%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 600px;
+    height: 600px;
+    background: radial-gradient(circle, rgba(74, 222, 128, 0.04) 0%, rgba(0, 0, 0, 0) 70%);
+    z-index: -1;
+    pointer-events: none;
+}
+
+/* ==========================================================================
+   2. ELEMENTOS COMPARTIDOS Y ESTRUCTURA DE CABECERA
+   ========================================================================== */
+.header-tema {
+    max-width: 900px;
+    margin: 0 auto 3rem auto;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.btn-regresar {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    color: var(--texto-mutado);
+    text-decoration: none;
+    font-size: 1.3rem;
+    font-weight: 500;
+    transition: color 0.2s ease;
+}
+
+.btn-regresar:hover {
+    color: var(--color-firma);
+}
+
+.badge-tema {
+    background: rgba(74, 222, 128, 0.06);
+    border: 1px solid rgba(74, 222, 128, 0.15);
+    color: var(--color-firma);
+    padding: 0.3rem 0.75rem;
+    border-radius: 20px;
+    font-size: 1.3rem;
+    font-weight: 600;
+    letter-spacing: 0.05em;
+    text-transform: uppercase;
+}
+
+/* ==========================================================================
+   3. CONTENEDOR PRINCIPAL Y ENCABEZADOS DE TEMA
+   ========================================================================== */
+.contenedor-tema {
+    max-width: 900px;
+    margin: 0 auto;
+}
+
+.encabezado-seccion-tema {
+    margin-bottom: 3rem;
+}
+
+.titulo-principal {
+    font-size: 2.25rem;
+    font-weight: 800;
+    letter-spacing: -0.025em;
+    margin-bottom: 0.5rem;
+    color: #ffffff;
+}
+
+.subtitulo-tema {
+    color: var(--texto-mutado);
+    font-size: 1.1rem;
+}
+
+/* ==========================================================================
+   4. BLOQUES ESTRUCTURALES DE CONTENIDO (BLOQUES MARKOV / LOGÍSTICOS)
+   ========================================================================== */
+.seccion-contenido {
+    background: var(--bg-superficie);
+    border: 1px solid var(--borde-sutil);
+    padding: 2rem;
+    border-radius: 16px;
+    backdrop-filter: blur(8px);
+    -webkit-backdrop-filter: blur(8px);
+    margin-bottom: 2rem;
+}
+
+.subtitulo-rockwell {
+    font-size: 1.3rem;
+    font-weight: 700;
+    margin-bottom: 1rem;
+    color: #ffffff;
+}
+
+.subtitulo-rockwell.text-sm {
+    font-size: 1.05rem;
+    margin-top: 1.5rem;
+}
+
+.parrafo-comun {
+    color: #cbd5e1;
+    font-size: 1rem;
+    margin-bottom: 1.25rem;
+}
+
+/* ==========================================================================
+   5. COMPONENTES INTERNOS: GRIDS, TABLAS Y FÓRMULAS
+   ========================================================================== */
+.grid-marvin {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 1.25rem;
+    margin-bottom: 1.5rem;
+}
+
+.tarjeta-probabilidades {
+    background: rgba(255, 255, 255, 0.01);
+    border: 1px solid rgba(255, 255, 255, 0.02);
+    padding: 1.25rem;
+    border-radius: 12px;
+}
+
+.tarjeta-probabilidades h5 {
+    font-size: 0.95rem;
+    color: var(--color-firma);
+    margin-bottom: 0.75rem;
+    text-transform: uppercase;
+    letter-spacing: 0.02em;
+}
+
+.fila-probabilidad {
+    display: flex;
+    justify-content: space-between;
+    font-size: 0.9rem;
+    padding: 0.4rem 0;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.02);
+    color: #e2e8f0;
+}
+
+.fila-probabilidad:last-child {
+    border-bottom: none;
+}
+
+.bloque-abstract {
+    background: rgba(74, 222, 128, 0.02);
+    border-left: 3px solid var(--color-firma);
+    padding: 1rem 1.25rem;
+    border-radius: 0 8px 8px 0;
+    font-size: 0.95rem;
+    color: #cbd5e1;
+}
+
+/* Tablas avanzadas del Portfolio */
+.contenedor-tabla-datos {
+    overflow-x: auto;
+    margin: 1rem 0;
+    border-radius: 10px;
+    border: 1px solid var(--borde-sutil);
+}
+
+.tabla-markov {
+    width: 100%;
+    border-collapse: collapse;
+    text-align: left;
+    font-size: 0.9rem;
+}
+
+.tabla-markov th {
+    background: rgba(255, 255, 255, 0.02);
+    color: var(--color-firma);
+    font-weight: 600;
+    padding: 0.75rem 1rem;
+    border-bottom: 1px solid var(--borde-sutil);
+}
+
+.tabla-markov td {
+    padding: 0.75rem 1rem;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.02);
+    color: #cbd5e1;
+}
+
+.tabla-markov tr:hover td {
+    background: rgba(255, 255, 255, 0.01);
+}
+
+.fila-total td {
+    background: rgba(74, 222, 128, 0.02);
+    color: #ffffff;
+    font-weight: bold;
+}
+
+/* Bloques matemáticos */
+.bloque-matriz-desarrollo {
+    background: rgba(0, 0, 0, 0.15) !important;
+    border: 1px solid var(--borde-sutil) !important;
+    padding: 1.25rem;
+    border-radius: 10px;
+    margin: 0.75rem 0 1.25rem 0;
+    overflow-x: auto;
+}
+
+/* ==========================================================================
+   6. CONTENEDORES DE BLOQUES COMPLEJOS Y ANIMACIONES
+   ========================================================================== */
+.final-box {
+    background: linear-gradient(135deg, rgba(74, 222, 128, 0.02) 0%, transparent 100%);
+    padding: 2rem;
+    border-radius: 16px;
+    border: 1px solid rgba(74, 222, 128, 0.04);
+}
+
+.margin-top { margin-top: 1.5rem; }
+
+.caja-reporte {
+    background: #091714;
+    border: 1px solid var(--borde-sutil);
+    border-radius: 12px;
+    padding: 1.25rem;
+    margin-top: 1.25rem;
+}
+
+.caja-reporte h5 {
+    color: var(--color-acento-verde);
+    font-size: 0.95rem;
+    margin-bottom: 0.5rem;
+}
+
+.caja-reporte blockquote {
+    font-size: 0.9rem;
+    color: #cbd5e1;
+    font-style: italic;
+    line-height: 1.5;
+}
+
+/* Animaciones */
+.animate-fade {
+    opacity: 0;
+    transform: translateY(10px);
+    animation: surgir 0.6s ease forwards;
+}
+
+@keyframes surgir { 
+    to { 
+        opacity: 1; 
+        transform: translateY(0); 
+    } 
+}
+
+/* Responsive design */
+@media (max-width: 768px) {
+    .grid-marvin {
+        grid-template-columns: 1fr;
+    }
+    body {
+        padding: 2rem 1rem;
+    }
+    .seccion-contenido {
+        padding: 1.5rem;
+    }
+}

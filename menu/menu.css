@@ -1,0 +1,249 @@
+/* ==========================================================================
+   VARIABLES DE ENTORNO Y CONFIGURACIÓN (SISTEMA DE DISEÑO)
+   ========================================================================== */
+:root {
+    --bg-ambiente: #060f0e;       /* Verde bosque extremadamente oscuro y elegante */
+    --bg-superficie: rgba(16, 36, 32, 0.4); /* Superficie translúcida con matiz verde */
+    --texto-principal: #f0fdf4;   /* Blanco con un levísimo toque menta */
+    --texto-mutado: #6b7c78;      /* Gris verdoso sutil */
+    --color-firma: #4ade80;       /* Verde esmeralda vibrante para acentos (reemplaza al celeste) */
+    --borde-sutil: rgba(255, 255, 255, 0.05);
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+    background-color: var(--bg-ambiente);
+    color: var(--texto-principal);
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    padding: 3rem 2rem;
+    position: relative;
+    overflow-x: hidden;
+}
+
+.orbe-decorativo {
+    position: absolute;
+    top: 40%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 600px;
+    height: 600px;
+    background: radial-gradient(circle, rgba(74, 222, 128, 0.03) 0%, rgba(0,0,0,0) 70%);
+    z-index: -1;
+    pointer-events: none;
+}
+
+/* ==========================================================================
+   ESTILOS DE CABECERA Y ELEMENTOS GLOBALES
+   ========================================================================== */
+.header-menu {
+    max-width: 1100px;
+    width: 100%;
+    margin: 0 auto;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 3rem;
+}
+
+.btn-regresar {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
+    color: var(--texto-mutado);
+    text-decoration: none;
+    font-size: 1.3rem;
+    font-weight: 500;
+    transition: color 0.2s ease;
+}
+
+.btn-regresar:hover {
+    color: var(--color-firma);
+}
+
+.btn-regresar svg {
+    transition: transform 0.2s ease;
+}
+
+.btn-regresar:hover svg {
+    transform: translateX(-2px);
+}
+
+.badge-menu {
+    background: rgba(74, 222, 128, 0.06);
+    border: 1px solid rgba(74, 222, 128, 0.15);
+    color: var(--color-firma);
+    padding: 0.35rem 0.75rem;
+    border-radius: 30px;
+    font-size: 1.3rem;
+    font-weight: 600;
+    letter-spacing: 0.05em;
+    text-transform: uppercase;
+}
+
+/* ==========================================================================
+   COMPONENTE DE ENCABEZADO Y AUDIO DE PRESENTACIÓN
+   ========================================================================== */
+.contenedor-menu {
+    max-width: 1100px;
+    width: 100%;
+    margin: 0 auto;
+    flex-grow: 1;
+}
+
+.encabezado-seccion {
+    text-align: center;
+    margin-bottom: 3.5rem;
+}
+
+.titulo-audio-wrapper {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 1.5rem;
+    flex-wrap: wrap;
+    margin-bottom: 0.75rem;
+}
+
+.encabezado-seccion .titulo-seccion {
+    font-size: 2.5rem;
+    font-weight: 800;
+    letter-spacing: -0.025em;
+    margin-bottom: 0;
+}
+
+.btn-audio {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.55rem;
+    background: rgba(255, 255, 255, 0.02);
+    border: 1px solid var(--borde-sutil);
+    color: var(--color-firma);
+    padding: 0.45rem 1.1rem;
+    border-radius: 30px;
+    cursor: pointer;
+    font-size: 0.85rem;
+    font-weight: 600;
+    backdrop-filter: blur(8px);
+    -webkit-backdrop-filter: blur(8px);
+    transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.btn-audio:hover {
+    background: rgba(74, 222, 128, 0.08);
+    border-color: rgba(74, 222, 128, 0.3);
+    transform: translateY(-1px);
+    box-shadow: 0 4px 12px rgba(74, 222, 128, 0.1);
+}
+
+.btn-audio:active {
+    transform: translateY(0);
+}
+
+.btn-audio.reproduciendo {
+    color: #ffffff;
+    background: rgba(74, 222, 128, 0.15);
+    border-color: var(--color-firma);
+    box-shadow: 0 0 15px rgba(74, 222, 128, 0.15);
+}
+
+.subtitulo-seccion {
+    color: var(--texto-mutado);
+    font-size: 1.1rem;
+    max-width: 600px;
+    margin: 0 auto;
+}
+
+/* ==========================================================================
+   GRID DE TARJETAS DE MENÚ
+   ========================================================================== */
+.grid-menu {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 1.5rem;
+}
+
+.tarjeta-menu {
+    background: var(--bg-superficie);
+    border: 1px solid var(--borde-sutil);
+    padding: 2rem 1.75rem;
+    border-radius: 20px;
+    text-decoration: none;
+    color: inherit;
+    backdrop-filter: blur(12px);
+    -webkit-backdrop-filter: blur(12px);
+    transition: transform 0.3s cubic-bezier(0.16, 1, 0.3, 1), border-color 0.3s ease, background-color 0.3s ease;
+    display: flex;
+    flex-direction: column;
+}
+
+.tarjeta-menu:hover {
+    transform: translateY(-5px);
+    border-color: rgba(74, 222, 128, 0.25);
+    background: rgba(16, 36, 32, 0.6);
+}
+
+.icono-tarjeta {
+    font-size: 1.75rem;
+    margin-bottom: 1.25rem;
+    background: rgba(255, 255, 255, 0.03);
+    width: 50px;
+    height: 50px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 12px;
+    border: 1px solid rgba(255, 255, 255, 0.02);
+}
+
+.tarjeta-menu h3 {
+    font-size: 1.25rem;
+    font-weight: 700;
+    margin-bottom: 0.5rem;
+    transition: color 0.2s ease;
+}
+
+.tarjeta-menu:hover h3 {
+    color: var(--color-firma);
+}
+
+.tarjeta-menu p {
+    color: var(--texto-mutado);
+    font-size: 0.95rem;
+    line-height: 1.5;
+}
+
+/* ==========================================================================
+   RESPONSIVE DESIGN (MEDIA QUERIES)
+   ========================================================================== */
+@media (max-width: 968px) {
+    .grid-menu {
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
+
+@media (max-width: 640px) {
+    body {
+        padding: 2rem 1rem;
+    }
+    .titulo-audio-wrapper {
+        gap: 1rem;
+    }
+    .encabezado-seccion .titulo-seccion {
+        font-size: 2rem;
+    }
+    .grid-menu {
+        grid-template-columns: 1fr;
+    }
+    .tarjeta-menu {
+        padding: 1.5rem;
+    }
+}

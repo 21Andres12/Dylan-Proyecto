@@ -1,0 +1,183 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Análisis de Markov - Portafolio</title>
+    <link rel="stylesheet" href="../../submenu_global/submenu_global.css">
+    <link rel="stylesheet" href="analisis_markov.css">
+</head>
+<body>
+
+    <div class="orbe-decorativo"></div>
+
+    <header class="header-tema">
+        <a href="../../menu/menu.html" class="btn-regresar">
+            <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="19" y1="12" x2="5" y2="12"></line><polyline points="12 19 5 12 12 5"></polyline></svg>
+            Volver al Menú
+        </a>
+        <span class="badge-tema">Tema 01</span>
+    </header>
+
+    <main class="contenedor-tema">
+        
+        <div id="tab-resumen" class="seccion-tab">
+            
+            <section class="introduccion-tema animate-fade">
+                <h1 class="titulo-principal">Análisis de Markov</h1>
+                <p class="bajada-titulo">Resumen Ejecutivo: Procesos Estocásticos</p>
+                <div class="bloque-abstract">
+                    <p>El análisis de Markov es una metodología cuantitativa estructurada para evaluar, modelar y diagnosticar la evolución dinámica de sistemas que transicionan entre diferentes estados a lo largo del tiempo. La premisa analítica fundamental de este enfoque radica en la <strong>Propiedad de Markov</strong>, la cual establece que el comportamiento futuro del sistema depende de forma exclusiva de su configuración o estado inmediato actual, omitiendo por completo el registro histórico de las transiciones previas.</p>
+                </div>
+            </section>
+
+            <section class="seccion-contenido animate-fade">
+                <h2 class="subtitulo-rockwell">Una forma sencilla de entenderlo</h2>
+                <p>Para comprenderlo de forma intuitiva, imagina que estás jugando un videojuego donde tu personaje puede estar en tres estados posibles: <strong>completamente sano</strong>, <strong>herido</strong> o <strong>eliminado</strong>.</p>
+                
+                <p>El análisis de Markov es simplemente una forma matemática de calcular qué tan probable es que pases de un estado a otro en el siguiente turno.</p>
+
+                <div class="destaque-regra">
+                    <p><strong>La regla de oro (Propiedad de Markov):</strong> Al juego solo le importa cómo estás en este preciso instante para decidir qué te va a pasar después. Al sistema <em>"se le olvida"</em> por completo tu pasado.</p>
+                </div>
+
+                <p>Si en este turno tu personaje está herido, el juego calcula la probabilidad de que en el próximo turno se cure o te eliminen basándose <strong>únicamente</strong> en que estás herido ahora. No importa si hace dos turnos tenías la vida al máximo, ni cuántas pociones te tomaste antes, ni cómo llegaste ahí. El pasado no cuenta; el juego no tiene memoria.</p>
+            </section>
+
+            <section class="seccion-contenido animate-fade">
+                <h2 class="subtitulo-rockwell">Variables Matemáticas Nucleares</h2>
+                <p>A nivel gerencial, el modelo no opera como una herramienta de certeza determinista, sino como un mecanismo estocástico (es decir, que depende del azar, aleatorio o impredecible) de planificación que proyecta probabilidades esperadas. Sus componentes clave son:</p>
+
+                <div class="grid-variables">
+                    <div class="tarjeta-variable">
+                        <h4>Probabilidades de Estado</h4>
+                        <p>Es un reporte o fotografía que muestra exactamente qué porcentaje de elementos se encuentra en cada situación posible en un momento específico del tiempo. Te dice cómo están repartidos todos justo ahora.</p>
+                    </div>
+                    <div class="tarjeta-variable">
+                        <h4>Probabilidades de Transición</h4>
+                        <p>Es una tabla que indica qué tan fácil o difícil es cambiar de una situación a otra de un momento al siguiente. Muestra la probabilidad de quedarse en el mismo lugar o moverse hacia una opción diferente.</p>
+                    </div>
+                </div>
+            </section>
+
+            <section class="seccion-contenido animate-fade">
+                <h2 class="subtitulo-rockwell">El Vector de Estado Inicial</h2>
+                <p>Es, en palabras muy sencillas, el punto de partida de todo el análisis. Una lista organizada de números que muestra exactamente cómo está repartido el sistema al inicio de nuestro estudio (en el momento cero).</p>
+                
+                <div class="tabla-caracteristicas">
+                    <div class="fila-caracteristica">
+                        <span class="numero-guia">01</span>
+                        <div>
+                            <h5>Es una "fotografía" del momento</h5>
+                            <p>No te dice el pasado ni predice el futuro; solo registra cómo están las cosas justo en el segundo en que empiezas a investigar.</p>
+                        </div>
+                    </div>
+                    <div class="fila-caracteristica">
+                        <span class="numero-guia">02</span>
+                        <div>
+                            <h5>Se compone de porcentajes</h5>
+                            <p>Each número dentro del vector representa la proporción o la probabilidad de elementos que se encuentran en una situación específica.</p>
+                        </div>
+                    </div>
+                    <div class="fila-caracteristica">
+                        <span class="numero-guia">03</span>
+                        <div>
+                            <h5>Siempre suma 100% (o 1)</h5>
+                            <p>Como incluye a absolutamente todos los elementos involucrados al arrancar el análisis, la suma de todas sus partes siempre debe dar el total completo.</p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="caja-uso">
+                    <p><strong>¿Para qué sirve?</strong> Es el "escalón uno". Si quieres calcular cómo se van a mover las cosas en el siguiente período de tiempo, necesitas obligatoriamente agarrar este vector inicial y multiplicarlo por la tabla de probabilidades de cambio. Sin saber de dónde partes, es imposible predecir hacia dónde vas.</p>
+                </div>
+            </section>
+
+            <section class="seccion-contenido animate-fade">
+                <h2 class="subtitulo-rockwell">Construcción en el Mundo Real</h2>
+                <p>La Matriz de probabilidad de transición no se inventa con números al azar; se construye vigilando y registrando lo que hace la gente en la vida real durante un tiempo determinado:</p>
+                
+                <ul class="lista-pasos">
+                    <li>Los investigadores se sientan a observar el comportamiento de los clientes entre un mes y otro (o un año y el siguiente).</li>
+                    <li>Cuentan cuántos clientes se quedaron con la misma marca y cuántos decidieron irse con la competencia.</li>
+                    <li>Esos números reales se transforman en los porcentajes de probabilidad que llenan la matriz.</li>
+                </ul>
+
+                <div class="ejemplo-contenedor">
+                    <div class="ejemplo-cabecera">Ejemplo Práctico: Caso Maxi Palí</div>
+                    <div class="ejemplo-cuerpo">
+                        <p>Imagina que al inicio del año registras a <strong>100 familias</strong> que compran en Maxi Palí. Al terminar el año, revisas qué hicieron y descubres esto:</p>
+                        <ul>
+                            <li><strong>88 familias</strong> siguieron comprando en Maxi Palí <em>(Se quedaron)</em>.</li>
+                            <li><strong>7 familias</strong> se pasaron a Megasuper <em>(Migraron)</em>.</li>
+                            <li><strong>5 familias</strong> se pasaron a los locales independientes <em>(Migraron)</em>.</li>
+                        </ul>
+                        <p class="resultado-matriz">Si conviertes esos datos en probabilidades (dividiendo entre 100), obtienes la primera fila de tu matriz: <span class="vector-codigo">[0.88, 0.07, 0.05]</span></p>
+                    </div>
+                </div>
+            </section>
+
+            <section class="seccion-contenido animate-fade">
+                <h2 class="subtitulo-rockwell">El Estado Estable</h2>
+                <p>Es el punto de equilibrio final de todo el sistema; imagínalo como el "destino final" o el balance a largo plazo. Al principio del análisis, las cosas cambian constantemente de un período a otro. Sin embargo, llega un momento (tras muchos intervalos de tiempo) donde el sistema se estabiliza.</p>
+                
+                <div class="destaque-regra balance">
+                    <p>Cuando alcanzas el <strong>estado estable</strong>, por más que sigas aplicando la matriz de transición, los porcentajes ya no cambian. Las migraciones se equilibran perfectamente: la misma cantidad de elementos que se van de un estado es exactamente igual a la cantidad de elementos que entran.</p>
+                </div>
+
+                <h3 class="subtitulo-tecnico">¿Por qué necesita condiciones técnicas para existir?</h3>
+                <p>Esto no ocurre por arte de magia. Para que este equilibrio realmente tenga sentido y se pueda calcular de forma única (sin importar de dónde hayas empezado), el sistema tiene que cumplir con ciertas reglas obligatorias de comportamiento:</p>
+
+                <div class="grid-condiciones">
+                    <div class="tarjeta-condicion">
+                        <h5>1. Tiene que ser Irreducible</h5>
+                        <p>Todos se comunican con todos. Tarde o temprano es posible pasar de cualquier estado a cualquier otro. No hay paredes que bloqueen el paso. Si existiera un estado del que nadie puede salir (absorbente), todos terminarían cayendo ahí tarde o temprano, destruyendo el equilibrio.</p>
+                    </div>
+                    <div class="tarjeta-condicion">
+                        <h5>2. Tiene que ser Aperiódica</h5>
+                        <p>Sin rutinas o bucles fijos. El sistema no se mueve en ciclos constantes o predecibles de tiempo. Si un cliente cambiara obligatoriamente de marca un año sí y un año no, el sistema se la pasaría rebotando eternamente entre dos extremos sin quedarse quieto jamás.</p>
+                    </div>
+                    <div class="tarjeta-condicion">
+                        <h5>3. Tiene que ser Regular</h5>
+                        <p>Garantiza matemáticamente que el punto de partida no importa. Una cadena es regular cuando, después de una cantidad de pasos, la matriz de transición se llena por completo de números mayores a cero. Empezando donde sea, el destino a largo plazo será el mismo.</p>
+                    </div>
+                </div>
+            </section>
+        </div>
+
+        <div id="tab-ejercicio" class="seccion-tab">
+            <section class="introduccion-tema">
+                <h1 class="titulo-principal">Resolución Práctica</h1>
+                <p class="bajada-titulo">Análisis Algorítmico y Multiplicación de Matrices</p>
+                
+                <div class="caso-real">
+                    <h5>📝 Caso Práctico Planteado:</h5>
+                    <p>Espacio reservado para el cálculo de estados de transición paso a paso y la resolución matemática del sistema de ecuaciones lineales para hallar las probabilidades de estado estable.</p>
+                </div>
+
+                <div style="background: rgba(255,255,255,0.01); border: 2px dashed rgba(255,255,255,0.04); padding: 3rem; border-radius: 12px; text-align: center; color: #9ca3af;">
+                    📊 [Aquí puedes insertar tus matrices de probabilidad, capturas de Excel QM o transiciones calculadas]
+                </div>
+            </section>
+        </div>
+
+        <div id="tab-video" class="seccion-tab">
+            <section class="introduccion-tema">
+                <h1 class="titulo-principal">Evidencia Multimedia</h1>
+                <p class="bajada-titulo">Video Explicativo de la Solución de Markov</p>
+                
+                <div style="background: #0b111e; border: 1px solid rgba(255,255,255,0.04); border-radius: 16px; padding: 1.5rem; margin-top: 2rem;">
+                    <div style="background: #000; width: 100%; aspect-ratio: 16/9; border-radius: 10px; display: flex; align-items: center; justify-content: center; color: #9ca3af;">
+                        <span>🎥 Espacio asignado para incrustar el reproductor o enlace del video del proyecto</span>
+                    </div>
+                </div>
+            </section>
+        </div>
+
+    </main>
+
+    <script src="../../submenu_global/submenu_global.js"></script>
+    
+    <script src="analisis_markov.js"></script>
+</body>
+</html>

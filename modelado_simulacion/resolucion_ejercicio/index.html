@@ -1,0 +1,309 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Taller Práctico: Simulación Monte Carlo - Terminal de Aduanas de Limón</title>
+    <link rel="stylesheet" href="../../submenu_global/submenu_global.css">
+    <link rel="stylesheet" href="styles.css">
+    
+    <script>
+        window.MathJax = {
+            tex: {
+                inlineMath: [['$', '$'], ['\\(', '\\)']],
+                displayMath: [['$$', '$$'], ['\\[', '\\]']]
+            }
+        };
+    </script>
+    <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+</head>
+<body>
+
+    <div class="orbe-decorativo"></div>
+
+    <header class="header-tema">
+        <a href="../../menu/menu.html" class="btn-regresar">
+            <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="19" y1="12" x2="5" y2="12"></line><polyline points="12 19 5 12 12 5"></polyline></svg>
+            Volver al Menú
+        </a>
+        <span class="badge-tema">Tema 03</span>
+    </header>
+
+    <main class="contenedor-tema animate-fade">
+        <div class="seccion-contenido">
+            <h1 class="titulo-principal">Taller Práctico: Simulación Monte Carlo</h1>
+            <p class="bajada-titulo">Evaluación Probabilística y Comportamiento Estocástico del Área de Aforo Físico (Terminal de Aduanas de Limón)</p>
+        </div>
+
+        <section class="seccion-contenido">
+            <div class="bloque-abstract">
+                <p><strong>Contexto General:</strong> La terminal portuaria enfrenta variabilidad operativa en el área de aforo físico (inspección aduanera). El departamento de operaciones requiere de su análisis analítico para evaluar el comportamiento probabilístico del sistema utilizando la Simulación Monte Carlo en tres frentes críticos.</p>
+            </div>
+        </section>
+
+        <section class="seccion-contenido">
+            <div class="bloque-analisis-mc">
+                <div class="cabecera-analisis-mc">
+                    <span class="etiqueta-frente-mc">Frente A</span>
+                    <div>
+                        <h3>Parte A: Simulación de un Problema de Colas (Tiempos de Inspección)</h3>
+                        <span class="sub-linea-mc">Historial de los últimos 100 contenedores revisados</span>
+                    </div>
+                </div>
+                <div class="cuerpo-analisis-mc">
+                    <p>Los contenedores seleccionados para inspección física tardan tiempos muy variables, lo que genera filas en las casetas.</p>
+                    
+                    <h4 class="subtitulo-rockwell">1. Probabilidades, Rangos y Valor Esperado</h4>
+                    <table class="tabla-datos-ejercicio">
+                        <thead>
+                            <tr>
+                                <th>Variable ($X$)</th>
+                                <th>Frecuencia</th>
+                                <th>Probabilidad $P(X)$</th>
+                                <th>P. Acumulada</th>
+                                <th>Rangos Numéricos</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr><td><strong>15 minutos</strong></td><td>20 contenedores</td><td>0.20</td><td>0.20</td><td>1 - 20</td></tr>
+                            <tr><td><strong>30 minutos</strong></td><td>40 contenedores</td><td>0.40</td><td>0.60</td><td>21 - 60</td></tr>
+                            <tr><td><strong>45 minutos</strong></td><td>30 contenedores</td><td>0.30</td><td>0.90</td><td>61 - 90</td></tr>
+                            <tr><td><strong>60 minutos</strong></td><td>10 contenedores</td><td>0.10</td><td>1.00</td><td>91 - 100</td></tr>
+                        </tbody>
+                    </table>
+
+                    <p class="vector-destacado">$$E(X) = \sum(X \cdot P(X)) = (15 \cdot 0.20) + (30 \cdot 0.40) + (45 \cdot 0.30) + (60 \cdot 0.10) = 34.5 \text{ minutos}$$</p>
+
+                    <h4 class="subtitulo-rockwell">2. Corrida de Simulación (10 eventos)</h4>
+                    <p><strong>Misión:</strong> Simule el tiempo de atención utilizando estrictamente la secuencia de números aleatorios asignada.</p>
+                    
+                    <table class="tabla-pronostico-final text-center">
+                        <thead>
+                            <tr>
+                                <th>Evento</th>
+                                <th>Número Aleatorio (RN)</th>
+                                <th>Rango Asociado</th>
+                                <th>Resultado Simulado</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr><td><strong>1</strong></td><td>25</td><td>21 - 60</td><td>30 min</td></tr>
+                            <tr><td><strong>2</strong></td><td>88</td><td>61 - 90</td><td>45 min</td></tr>
+                            <tr><td><strong>3</strong></td><td>12</td><td>1 - 20</td><td>15 min</td></tr>
+                            <tr><td><strong>4</strong></td><td>65</td><td>61 - 90</td><td>45 min</td></tr>
+                            <tr><td><strong>5</strong></td><td>92</td><td>91 - 100</td><td>60 min</td></tr>
+                            <tr><td><strong>6</strong></td><td>8</td><td>1 - 20</td><td>15 min</td></tr>
+                            <tr><td><strong>7</strong></td><td>45</td><td>21 - 60</td><td>30 min</td></tr>
+                            <tr><td><strong>8</strong></td><td>73</td><td>61 - 90</td><td>45 min</td></tr>
+                            <tr><td><strong>9</strong></td><td>19</td><td>1 - 20</td><td>15 min</td></tr>
+                            <tr><td><strong>10</strong></td><td>54</td><td>21 - 60</td><td>30 min</td></tr>
+                        </tbody>
+                    </table>
+
+                    <div class="destaque-regra">
+                        <p><strong>Distribución de Ocurrencias:</strong> 15 min (3 veces) | 30 min (3 veces) | 45 min (3 veces) | 60 min (1 vez).</p>
+                    </div>
+
+                    <h4 class="subtitulo-rockwell">3. Consolidación Estadística y Conclusión Gerencial</h4>
+                    <div class="grid-mc-tres">
+                        <div class="mc-card">
+                            <span class="mc-card-tag">Frecuencia Ponderada</span>
+                            <p><strong>Tiempo Total Acumulado:</strong><br>$(3 \cdot 15) + (3 \cdot 30) + (3 \cdot 45) + (1 \cdot 60) =$ <strong>330 minutos</strong></p>
+                        </div>
+                        <div class="mc-card revelacion">
+                            <span class="mc-card-tag">Promedio Simulado</span>
+                            <p><strong>Promedio Final (N=10):</strong><br>$$\frac{330}{10} = \mathbf{33 \text{ minutos}}$$</p>
+                        </div>
+                        <div class="mc-card utilidad">
+                            <span class="mc-card-tag">Valor Teórico</span>
+                            <p><strong>E(X) Teórico:</strong><br><br>$$\mathbf{34.5 \text{ minutos}}$$</p>
+                        </div>
+                    </div>
+
+                    <div class="caja-reporte">
+                        <h5>Conclusión Gerencial</h5>
+                        <blockquote>El promedio simulado (33 min) es inferior al teórico (34.5 min). La variabilidad en 10 corridas muestra que aunque ocurrió un escenario crítico extremo de 60 minutos que saturaría la aguja, la alta frecuencia de trámites rápidos logró compensar y bajar el promedio general del turno.</blockquote>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="seccion-contenido">
+            <div class="bloque-analisis-mc">
+                <div class="cabecera-analisis-mc">
+                    <span class="etiqueta-frente-mc">Frente B</span>
+                    <div>
+                        <h3>Parte B: Simulación de Control de Recursos e Insumos (Marchamos)</h3>
+                        <span class="sub-linea-mc">Historial de 100 días de operación de la demanda diaria</span>
+                    </div>
+                </div>
+                <div class="cuerpo-analisis-mc">
+                    <p>Para sellar los contenedores tras la revisión aduanera, los oficiales utilizan marchamos de alta seguridad. La demanda diaria de estos insumos es incierta.</p>
+                    
+                    <h4 class="subtitulo-rockwell">1. Probabilidades, Rangos y Valor Esperado</h4>
+                    <table class="tabla-datos-ejercicio">
+                        <thead>
+                            <tr>
+                                <th>Demanda ($X$)</th>
+                                <th>Frecuencia</th>
+                                <th>Probabilidad $P(X)$</th>
+                                <th>P. Acumulada</th>
+                                <th>Rangos Numéricos</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr><td><strong>50 marchamos</strong></td><td>15 días</td><td>0.15</td><td>0.15</td><td>1 - 15</td></tr>
+                            <tr><td><strong>100 marchamos</strong></td><td>45 días</td><td>0.45</td><td>0.60</td><td>16 - 60</td></tr>
+                            <tr><td><strong>150 marchamos</strong></td><td>30 días</td><td>0.30</td><td>0.90</td><td>61 - 90</td></tr>
+                            <tr><td><strong>200 marchamos</strong></td><td>10 días</td><td>0.10</td><td>1.00</td><td>91 - 100</td></tr>
+                        </tbody>
+                    </table>
+
+                    <p class="vector-destacado">$$E(X) = \sum(X \cdot P(X)) = (50 \cdot 0.15) + (100 \cdot 0.45) + (150 \cdot 0.30) + (200 \cdot 0.10) = 117.5 \text{ unidades diarias}$$</p>
+
+                    <h4 class="subtitulo-rockwell">2. Corrida de Simulación (10 eventos)</h4>
+                    <p><strong>Misión:</strong> Simule la demanda diaria de marchamos para los próximos 10 días utilizando estrictamente la secuencia aleatoria asignada.</p>
+                    
+                    <table class="tabla-pronostico-final text-center">
+                        <thead>
+                            <tr>
+                                <th>Día</th>
+                                <th>Número Aleatorio (RN)</th>
+                                <th>Rango Asociado</th>
+                                <th>Resultado Simulado</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr><td><strong>1</strong></td><td>50</td><td>16 - 60</td><td>100 u</td></tr>
+                            <tr><td><strong>2</strong></td><td>10</td><td>1 - 15</td><td>50 u</td></tr>
+                            <tr><td><strong>3</strong></td><td>85</td><td>61 - 90</td><td>150 u</td></tr>
+                            <tr><td><strong>4</strong></td><td>42</td><td>16 - 60</td><td>100 u</td></tr>
+                            <tr><td><strong>5</strong></td><td>95</td><td>91 - 100</td><td>200 u</td></tr>
+                            <tr><td><strong>6</strong></td><td>22</td><td>16 - 60</td><td>100 u</td></tr>
+                            <tr><td><strong>7</strong></td><td>67</td><td>61 - 90</td><td>150 u</td></tr>
+                            <tr><td><strong>8</strong></td><td>5</td><td>1 - 15</td><td>50 u</td></tr>
+                            <tr><td><strong>9</strong></td><td>33</td><td>16 - 60</td><td>100 u</td></tr>
+                            <tr><td><strong>10</strong></td><td>78</td><td>61 - 90</td><td>150 u</td></tr>
+                        </tbody>
+                    </table>
+
+                    <div class="destaque-regra">
+                        <p><strong>Distribución de Ocurrencias:</strong> 50 u (2 veces) | 100 u (4 veces) | 150 u (3 veces) | 200 u (1 vez).</p>
+                    </div>
+
+                    <h4 class="subtitulo-rockwell">3. Consolidación Estadística y Conclusión Gerencial</h4>
+                    <div class="grid-mc-tres">
+                        <div class="mc-card">
+                            <span class="mc-card-tag">Frecuencia Ponderada</span>
+                            <p><strong>Demanda Total Acumulada:</strong><br>$(2 \cdot 50) + (4 \cdot 100) + (3 \cdot 150) + (1 \cdot 200) =$ <strong>1150 unidades</strong></p>
+                        </div>
+                        <div class="mc-card revelacion">
+                            <span class="mc-card-tag">Promedio Simulado</span>
+                            <p><strong>Promedio Final (N=10):</strong><br>$$\frac{1150}{10} = \mathbf{115 \text{ unidades/día}}$$</p>
+                        </div>
+                        <div class="mc-card utilidad">
+                            <span class="mc-card-tag">Valor Teórico</span>
+                            <p><strong>E(X) Teórico:</strong><br><br>$$\mathbf{117.5 \text{ unidades/día}}$$</p>
+                        </div>
+                    </div>
+
+                    <div class="caja-reporte">
+                        <h5>Conclusión Gerencial</h5>
+                        <blockquote>El promedio simulado (115) se acerca al teórico (117.5). Sin embargo, planificar el stock de marchamos basándose solo en la media teórica habría provocado escasez en el puerto durante 4 de los 10 días simulados (donde la demanda brincó a 150 o 200), justificando la necesidad de un inventario de seguridad.</blockquote>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="seccion-contenido">
+            <div class="bloque-analisis-mc">
+                <div class="cabecera-analisis-mc">
+                    <span class="etiqueta-frente-mc">Frente C</span>
+                    <div>
+                        <h3>Parte C: Modelo de Simulación de una Política de Mantenimiento</h3>
+                        <span class="sub-linea-mc">Historial de 100 fallas previas del escáner de rayos X</span>
+                    </div>
+                </div>
+                <div class="cuerpo-analisis-mc">
+                    <p>El escáner de rayos X sufre averías mecánicas periódicas que paralizan las inspecciones. El historial indica el tiempo de funcionamiento continuo útil antes de colapsar.</p>
+                    
+                    <h4 class="subtitulo-rockwell">1. Probabilidades, Rangos y Valor Esperado</h4>
+                    <table class="tabla-datos-ejercicio">
+                        <thead>
+                            <tr>
+                                <th>Tiempo Útil ($X$)</th>
+                                <th>Frecuencia</th>
+                                <th>Probabilidad $P(X)$</th>
+                                <th>P. Acumulada</th>
+                                <th>Rangos Numéricos</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr><td><strong>10 días útiles</strong></td><td>30 fallas</td><td>0.30</td><td>0.30</td><td>1 - 30</td></tr>
+                            <tr><td><strong>20 días útiles</strong></td><td>40 fallas</td><td>0.40</td><td>0.70</td><td>31 - 70</td></tr>
+                            <tr><td><strong>30 días útiles</strong></td><td>20 fallas</td><td>0.20</td><td>0.90</td><td>71 - 90</td></tr>
+                            <tr><td><strong>40 días útiles</strong></td><td>10 fallas</td><td>0.10</td><td>1.00</td><td>91 - 100</td></tr>
+                        </tbody>
+                    </table>
+
+                    <p class="vector-destacado">$$E(X) = \sum(X \cdot P(X)) = (10 \cdot 0.30) + (20 \cdot 0.40) + (30 \cdot 0.20) + (40 \cdot 0.10) = 21 \text{ días útiles}$$</p>
+
+                    <h4 class="subtitulo-rockwell">2. Corrida de Simulación (10 eventos)</h4>
+                    <p><strong>Misión:</strong> Simule los próximos 10 ciclos mecánicos del equipo para conocer su desgaste estocástico utilizando los números aleatorios asignados.</p>
+                    
+                    <table class="tabla-pronostico-final text-center">
+                        <thead>
+                            <tr>
+                                <th>Ciclo</th>
+                                <th>Número Aleatorio (RN)</th>
+                                <th>Rango Asociado</th>
+                                <th>Resultado Simulado</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr><td><strong>1</strong></td><td>75</td><td>71 - 90</td><td>30 días</td></tr>
+                            <tr><td><strong>2</strong></td><td>18</td><td>1 - 30</td><td>10 días</td></tr>
+                            <tr><td><strong>3</strong></td><td>55</td><td>31 - 70</td><td>20 días</td></tr>
+                            <tr><td><strong>4</strong></td><td>32</td><td>31 - 70</td><td>20 días</td></tr>
+                            <tr><td><strong>5</strong></td><td>91</td><td>91 - 100</td><td>40 días</td></tr>
+                            <tr><td><strong>6</strong></td><td>4</td><td>1 - 30</td><td>10 días</td></tr>
+                            <tr><td><strong>7</strong></td><td>61</td><td>31 - 70</td><td>20 días</td></tr>
+                            <tr><td><strong>8</strong></td><td>89</td><td>71 - 90</td><td>30 días</td></tr>
+                            <tr><td><strong>9</strong></td><td>27</td><td>1 - 30</td><td>10 días</td></tr>
+                            <tr><td><strong>10</strong></td><td>49</td><td>31 - 70</td><td>20 días</td></tr>
+                        </tbody>
+                    </table>
+
+                    <div class="destaque-regra">
+                        <p><strong>Distribución de Ocurrencias:</strong> 10 días (3 veces) | 20 días (4 veces) | 30 días (2 veces) | 40 días (1 vez).</p>
+                    </div>
+
+                    <h4 class="subtitulo-rockwell">3. Consolidación Estadística y Conclusión Gerencial</h4>
+                    <div class="grid-mc-tres">
+                        <div class="mc-card">
+                            <span class="mc-card-tag">Frecuencia Ponderada</span>
+                            <p><strong>Tiempo Total Útil:</strong><br>$(3 \cdot 10) + (4 \cdot 20) + (2 \cdot 30) + (1 \cdot 40) =$ <strong>210 días</strong></p>
+                        </div>
+                        <div class="mc-card revelacion">
+                            <span class="mc-card-tag">Promedio Simulado</span>
+                            <p><strong>Promedio Final (N=10):</strong><br>$$\frac{210}{10} = \mathbf{21 \text{ días útiles}}$$</p>
+                        </div>
+                        <div class="mc-card utilidad">
+                            <span class="mc-card-tag">Valor Teórico</span>
+                            <p><strong>E(X) Teórico:</strong><br><br>$$\mathbf{21 \text{ días útiles}}$$</p>
+                        </div>
+                    </div>
+
+                    <div class="caja-reporte">
+                        <h5>Conclusión Gerencial</h5>
+                        <blockquote>Matemáticamente, el promedio empírico (21 días) calzó exactamente con la teoría. A pesar de esto, la simulación demuestra que el 70% de las veces la máquina fallará a los 20 días o antes. Esperar al promedio de 21 días para revisar la máquina garantizaría averías constantes, justificando un mantenimiento preventivo más estricto.</blockquote>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <script src="../../submenu_global/submenu_global.js"></script>
+    <script src="script.js"></script>
+</body>
+</html>

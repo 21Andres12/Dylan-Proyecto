@@ -1,0 +1,230 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Resolución del Ejercicio: Modelos de Redes</title>
+    <link rel="stylesheet" href="../../submenu_global/submenu_global.css">
+    <link rel="stylesheet" href="styles.css">
+    
+    <script>
+        window.MathJax = {
+            tex: {
+                inlineMath: [['$', '$'], ['\\(', '\\)']],
+                displayMath: [['$$', '$$'], ['\\[', '\\]']]
+            }
+        };
+    </script>
+    <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+</head>
+<body>
+
+    <div class="orbe-decorativo"></div>
+
+    <header class="header-tema">
+        <a href="../../menu/menu.html" class="btn-regresar">
+            <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="19" y1="12" x2="5" y2="12"></line><polyline points="12 19 5 12 12 5"></polyline></svg>
+            Volver al Menú
+        </a>
+        <span class="badge-tema">Tema 04</span>
+    </header>
+
+    <main class="contenedor-tema">
+        <div class="seccion-contenido">
+            <h1 class="titulo-principal">Optimización de Modelos de Redes</h1>
+            <p class="bajada-titulo">Análisis del Flujo Logístico desde el Puerto de Limón hasta San José</p>
+        </div>
+
+        <section class="seccion-contenido">
+            <div class="bloque-abstract">
+                <p><strong>Problema General:</strong> Una empresa de transporte debe enviar mercancía desde el Puerto de Limón ($A$) hasta el Centro de Distribución en San José ($F$). Los números representan la distancia en kilómetros entre cada punto operativo mediante conexiones bidireccionales.</p>
+            </div>
+
+            <h4 class="subtitulo-rockwell">Matriz de Conexiones y Distancias Habilitadas</h4>
+            <table class="tabla-datos-ejercicio">
+                <thead>
+                    <tr>
+                        <th>Conexión del Arco</th>
+                        <th>Distancia Asociada ($km$)</th>
+                        <th>Tipo de Dirección</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr><td><strong>A - B</strong></td><td>7 km</td><td>Bidireccional</td></tr>
+                    <tr><td><strong>A - C</strong></td><td>5 km</td><td>Bidireccional</td></tr>
+                    <tr><td><strong>A - D</strong></td><td>6 km</td><td>Bidireccional</td></tr>
+                    <tr><td><strong>B - C</strong></td><td>2 km</td><td>Bidireccional</td></tr>
+                    <tr><td><strong>B - E</strong></td><td>4 km</td><td>Bidireccional</td></tr>
+                    <tr><td><strong>C - E</strong></td><td>6 km</td><td>Bidireccional</td></tr>
+                    <tr><td><strong>C - F</strong></td><td>4 km</td><td>Bidireccional</td></tr>
+                    <tr><td><strong>D - C</strong></td><td>3 km</td><td>Bidireccional</td></tr>
+                    <tr><td><strong>D - F</strong></td><td>8 km</td><td>Bidireccional</td></tr>
+                    <tr><td><strong>E - F</strong></td><td>3 km</td><td>Bidireccional</td></tr>
+                </tbody>
+            </table>
+        </section>
+
+        <section class="seccion-contenido">
+            <div class="bloque-analisis-redes">
+                <div class="cabecera-analisis-redes">
+                    <span class="etiqueta-frente-redes">Frente I</span>
+                    <div>
+                        <h3>Parte 1: Técnica de la Ruta Más Corta (Algoritmo de Dijkstra)</h3>
+                        <span class="sub-linea-redes">Objetivo: Encontrar el camino más eficiente entre un origen y un destino exclusivo.</span>
+                    </div>
+                </div>
+                <div class="cuerpo-analisis-redes">
+                    <h4 class="subtitulo-rockwell">Desarrollo Algorítmico Paso a Paso</h4>
+                    
+                    <div class="tarjeta-paso-redes">
+                        <span class="numero-paso">Paso 1</span>
+                        <h5>Inicio en el Nodo de Origen ($A$)</h5>
+                        <p>Nos ubicamos en el Puerto de Limón ($A$) con una distancia acumulada inicial de $0\text{ km}$. Evaluamos las tres opciones de salida disponibles:</p>
+                        <ul>
+                            <li>Hacia el Nodo $B$: $7\text{ km}$</li>
+                            <li>Hacia el Nodo $C$: $5\text{ km}$</li>
+                            <li>Hacia el Nodo $D$: $6\text{ km}$</li>
+                        </ul>
+                        <p class="decision-algoritmo"><strong>Decisión Estratégica:</strong> Seleccionamos la ruta con menor longitud transitoria. Nos movemos al <strong>Nodo C</strong>. Distancia acumulada actual: $5\text{ km}$.</p>
+                    </div>
+
+                    <div class="tarjeta-paso-redes">
+                        <span class="numero-paso">Paso 2</span>
+                        <h5>Evaluación Operativa desde el Nodo $C$</h5>
+                        <p>Estando estacionados en la coordenada $C$ (con una base fija de $5\text{ km}$), ponderamos los siguientes vectores sumando la penalización del arco:</p>
+                        <ul>
+                            <li>Regresar al Nodo $B$: $5 + 2 = 7\text{ km}$ <span class="badge-alerta">(Iguala al tramo directo A-B, se descarta)</span></li>
+                            <li>Avanzar al Nodo $D$: $5 + 3 = 8\text{ km}$</li>
+                            <li>Avanzar al Nodo $E$: $5 + 6 = 11\text{ km}$</li>
+                            <li>Avanzar al Nodo final $F$ (Destino): $5 + 4 = 9\text{ km}$</li>
+                        </ul>
+                        <p>Identificamos de forma preliminar un canal de interconexión directa con el destino por un total neto de $9\text{ km}$.</p>
+                    </div>
+
+                    <div class="tarjeta-paso-redes">
+                        <span class="numero-paso">Paso 3</span>
+                        <h5>Comprobación Exhaustiva de Rutas Alternativas</h5>
+                        <p>Para asegurar la optimalidad del modelo matemático, analizamos las combinaciones poligonales complementarias:</p>
+                        <ul>
+                            <li><strong>Evaluación del Flujo Inferior (Vía $D$):</strong> Tramo $A \rightarrow D$ ($6\text{ km}$) + Tramo $D \rightarrow F$ ($8\text{ km}$) = $$6 + 8 = 14\text{ km}$$ <span class="badge-error">(Descartado por exceso de recorrido)</span></li>
+                            <li><strong>Evaluación del Flujo Superior (Vía $B$):</strong> Tramo $A \rightarrow B$ ($7\text{ km}$) + Tramo $B \rightarrow E$ ($4\text{ km}$) + Tramo $E \rightarrow F$ ($3\text{ km}$) = $$7 + 4 + 3 = 14\text{ km}$$ <span class="badge-error">(Descartado por exceso de recorrido)</span></li>
+                        </ul>
+                    </div>
+
+                    <h4 class="subtitulo-rockwell">Consolidación de Ruta Óptima</h4>
+                    <div class="grid-resumen-redes">
+                        <div class="tarjeta-resumen-final">
+                            <span class="titulo-resumen">Ruta Crítica Elegida</span>
+                            <p class="valor-resumen">A &rarr; C &rarr; F</p>
+                        </div>
+                        <div class="tarjeta-resumen-final destacado">
+                            <span class="titulo-resumen">Distancia Total Reducida</span>
+                            <p class="valor-resumen">$$9\text{ km}$$</p>
+                        </div>
+                    </div>
+
+                    <div class="caja-reporte-redes">
+                        <h5>Conclusión Logística (Dijkstra)</h5>
+                        <blockquote>La ruta óptima determinada para la cadena de suministros corresponde a transitar desde el Puerto de Limón ($A$) hacia el nodo intermedio ($C$), finalizando de manera directa en San José ($F$). Cualquier otra ramificación periférica incrementa los costos de transporte de un $55.5\%$ a un valor de $14\text{ km}$.</blockquote>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="seccion-contenido">
+            <div class="bloque-analisis-redes">
+                <div class="cabecera-analisis-redes">
+                    <span class="etiqueta-frente-redes">Frente II</span>
+                    <div>
+                        <h3>Parte 2: Técnica del Árbol de Expansión Mínima (Algoritmo de Kruskal)</h3>
+                        <span class="sub-linea-redes">Objetivo: Interconectar todos los nodos de la infraestructura minimizando la longitud total sin ciclos.</span>
+                    </div>
+                </div>
+                <div class="cuerpo-analisis-redes">
+                    <h4 class="subtitulo-rockwell">Despliegue de Construcción de Enlaces</h4>
+                    
+                    <table class="tabla-pronostico-final text-center">
+                        <thead>
+                            <tr>
+                                <th>Iteración</th>
+                                <th>Arco Evaluado</th>
+                                <th>Distancia ($km$)</th>
+                                <th>Estado del Sistema e Impacto en la Red</th>
+                                <th>Acumulado Total</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td><strong>1</strong></td>
+                                <td>B - C</td>
+                                <td>2 km</td>
+                                <td><span class="badge-exito">Construido</span> Enlace más corto del mapa global.</td>
+                                <td>2 km</td>
+                            </tr>
+                            <tr>
+                                <td><strong>2</strong></td>
+                                <td>C - D</td>
+                                <td>3 km</td>
+                                <td><span class="badge-exito">Construido</span> Empate técnico de menor longitud. No genera ciclos.</td>
+                                <td>5 km</td>
+                            </tr>
+                            <tr>
+                                <td><strong>3</strong></td>
+                                <td>E - F</td>
+                                <td>3 km</td>
+                                <td><span class="badge-exito">Construido</span> Empate técnico de menor longitud. Une subgrupo aislado.</td>
+                                <td>8 km</td>
+                            </tr>
+                            <tr>
+                                <td><strong>4</strong></td>
+                                <td>C - F</td>
+                                <td>4 km</td>
+                                <td><span class="badge-exito">Construido</span> Conecta estructuralmente los dos subgrupos separados.</td>
+                                <td>12 km</td>
+                            </tr>
+                            <tr>
+                                <td><strong>-</strong></td>
+                                <td>B - E</td>
+                                <td>4 km</td>
+                                <td><span class="badge-error">Descartado</span> Provocaría un bucle cerrado innecesario ($B-C-F-E$).</td>
+                                <td>12 km</td>
+                            </tr>
+                            <tr>
+                                <td><strong>5</strong></td>
+                                <td>A - C</td>
+                                <td>5 km</td>
+                                <td><span class="badge-exito">Construido</span> Conecta el origen ($A$) mediante el nodo más próximo ($C$).</td>
+                                <td>17 km</td>
+                            </tr>
+                        </tbody>
+                    </table>
+
+                    <div class="destaque-regra">
+                        <p><strong>Estatus de Validation Estructural:</strong> Todos los nodos ($A, B, C, D, E, F$) se encuentran plenamente integrados en una infraestructura unificada libre de bucles de retroalimentación.</p>
+                    </div>
+
+                    <h4 class="subtitulo-rockwell">Consolidación de la Infraestructura de Red</h4>
+                    <div class="grid-resumen-redes">
+                        <div class="tarjeta-resumen-final">
+                            <span class="titulo-resumen">Componentes Habilitados</span>
+                            <p class="valor-resumen text-sm">B-C, C-D, E-F, C-F, A-C</p>
+                        </div>
+                        <div class="tarjeta-resumen-final verduzco">
+                            <span class="titulo-resumen">Extensión Mínima de Expansión</span>
+                            <p class="valor-resumen">$$17\text{ km}$$</p>
+                        </div>
+                    </div>
+
+                    <div class="caja-reporte-redes">
+                        <h5>Conclusión de Diseño de Red</h5>
+                        <blockquote>La topología del árbol de expansión mínima garantiza la unificación de todos los puntos de control intermedios bajo una longitud agregada estricta de $17\text{ km}$. Este modelo establece el marco óptimo para cableado, tendido de fibra óptica o rutas internas de mantenimiento global dentro de la red vial de distribución portuaria.</blockquote>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <script src="../../submenu_global/submenu_global.js"></script>
+    <script src="script.js"></script>
+</body>
+</html>

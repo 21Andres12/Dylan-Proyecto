@@ -1,0 +1,316 @@
+:root {
+    --bg-ambiente: #060f0e;       /* Verde bosque extremadamente oscuro y elegante */
+    --bg-superficie: rgba(16, 36, 32, 0.4); /* Superficie translúcida con matiz verde */
+    --texto-principal: #f0fdf4;   /* Blanco con un levísimo toque menta */
+    --texto-mutado: #6b7c78;      /* Gris verdoso sutil */
+    --color-firma: #4ade80;       /* Verde esmeralda brillante para acentos principales */
+    --color-acento-verde: #a3e635; /* Verde lima/menta vibrante para segundos acentos */
+    --borde-sutil: rgba(255, 255, 255, 0.04);
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+    background-color: var(--bg-ambiente);
+    color: var(--texto-principal);
+    line-height: 1.6;
+    padding: 2rem;
+    min-height: 100vh;
+}
+
+.orbe-decorativo {
+    position: absolute;
+    top: 15%;
+    left: 75%;
+    transform: translate(-50%, -50%);
+    width: 700px;
+    height: 700px;
+    background: radial-gradient(circle, rgba(74, 222, 128, 0.04) 0%, rgba(0,0,0,0) 70%);
+    z-index: -1;
+    pointer-events: none;
+}
+
+/* --- BANNER DE NAVEGACIÓN --- */
+.header-tema {
+    max-width: 850px;
+    width: 100%;
+    margin: 0 auto 3rem auto;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding-bottom: 1rem;
+    border-bottom: 1px solid var(--borde-sutil);
+}
+
+.btn-regresar {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
+    color: var(--texto-mutado);
+    text-decoration: none;
+    font-size: 1.3rem;
+    font-weight: 500;
+    transition: color 0.2s ease;
+}
+
+.btn-regresar:hover {
+    color: #ffffff;
+}
+
+.badge-tema {
+    background: rgba(74, 222, 128, 0.08);
+    color: var(--color-firma);
+    padding: 0.3rem 0.9rem;
+    border-radius: 20px;
+    font-size: 1.3rem;
+    font-weight: 600;
+    border: 1px solid rgba(74, 222, 128, 0.1);
+}
+
+/* --- CONTENEDOR PRINCIPAL --- */
+.contenedor-tema {
+    max-width: 850px;
+    width: 100%;
+    margin: 0 auto;
+}
+
+/* --- APLICACIÓN DE FUENTE ROCKWELL --- */
+.titulo-principal {
+    font-family: 'Rockwell', 'Courier New', Courier, Georgia, serif;
+    font-size: 3rem;
+    font-weight: 700;
+    letter-spacing: -0.01em;
+    color: #ffffff;
+    margin-bottom: 0.25rem;
+}
+
+.subtitulo-rockwell {
+    font-family: 'Rockwell', 'Courier New', Courier, Georgia, serif;
+    font-size: 1.75rem;
+    font-weight: 600;
+    color: #ffffff;
+    margin-bottom: 1.25rem;
+    margin-top: 1rem;
+}
+
+.bajada-titulo {
+    font-size: 1.1rem;
+    color: var(--color-firma);
+    margin-bottom: 1.75rem;
+    font-weight: 500;
+}
+
+.bloque-abstract {
+    background: linear-gradient(to right, rgba(74, 222, 128, 0.03), transparent);
+    border-left: 3px solid var(--color-firma);
+    padding: 1.5rem;
+    border-radius: 0 12px 12px 0;
+    margin-bottom: 3rem;
+    font-size: 1.05rem;
+    color: #cbd5e1;
+}
+
+.seccion-contenido {
+    margin-bottom: 3.5rem;
+}
+
+.seccion-contenido p {
+    color: #cbd5e1;
+    margin-bottom: 1.25rem;
+    font-size: 1rem;
+}
+
+/* --- BLOQUES DE DESTACADOS Y METÁFORAS --- */
+.destaque-regra {
+    background: rgba(255, 255, 255, 0.02);
+    border: 1px solid var(--borde-sutil);
+    padding: 1.25rem 1.5rem;
+    border-radius: 14px;
+    margin: 1.5rem 0;
+}
+
+.destaque-regra.balance {
+    border-left: 3px solid var(--color-acento-verde);
+    border-radius: 0 14px 14px 0;
+}
+
+.destaque-regra p {
+    margin-bottom: 0;
+    color: #f1f5f9;
+}
+
+/* --- CUADRÍCULA DE VARIABLES --- */
+.grid-variables {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 1.5rem;
+    margin-top: 1.5rem;
+}
+
+.tarjeta-variable {
+    background: var(--bg-superficie);
+    border: 1px solid var(--borde-sutil);
+    padding: 1.5rem;
+    border-radius: 16px;
+}
+
+.tarjeta-variable h4 {
+    font-size: 1.1rem;
+    color: #ffffff;
+    margin-bottom: 0.5rem;
+}
+
+/* --- FILAS DE CARACTERÍSTICAS (VECTOR INITIAL) --- */
+.tabla-caracteristicas {
+    display: flex;
+    flex-direction: column;
+    gap: 1.25rem;
+    margin: 1.5rem 0;
+}
+
+.fila-caracteristica {
+    display: flex;
+    gap: 1.25rem;
+    background: rgba(255,255,255, 0.01);
+    padding: 1rem 1.25rem;
+    border-radius: 12px;
+    align-items: flex-start;
+}
+
+.numero-guia {
+    font-family: monospace;
+    font-size: 1.1rem;
+    font-weight: 700;
+    color: var(--color-firma);
+    background: rgba(74, 222, 128, 0.06);
+    padding: 0.2rem 0.5rem;
+    border-radius: 6px;
+}
+
+.fila-caracteristica h5 {
+    font-size: 1rem;
+    color: #ffffff;
+    margin-bottom: 0.2rem;
+}
+
+.caja-uso {
+    background: rgba(74, 222, 128, 0.02);
+    border: 1px dashed rgba(74, 222, 128, 0.2);
+    padding: 1.25rem;
+    border-radius: 12px;
+    margin-top: 1.5rem;
+}
+
+/* --- LISTAS Y EJEMPLO PRÁCTICO --- */
+.lista-pasos {
+    margin-left: 1.5rem;
+    color: #cbd5e1;
+    margin-bottom: 1.5rem;
+}
+
+.lista-pasos li {
+    margin-bottom: 0.5rem;
+}
+
+.ejemplo-contenedor {
+    background: #091714;
+    border: 1px solid var(--borde-sutil);
+    border-radius: 16px;
+    overflow: hidden;
+    margin-top: 2rem;
+}
+
+.ejemplo-cabecera {
+    background: rgba(255, 255, 255, 0.03);
+    padding: 0.75rem 1.5rem;
+    font-weight: 600;
+    font-size: 0.9rem;
+    color: #94a3b8;
+    border-bottom: 1px solid var(--borde-sutil);
+}
+
+.ejemplo-cuerpo {
+    padding: 1.5rem;
+}
+
+.ejemplo-cuerpo ul {
+    margin-left: 1.25rem;
+    margin-top: 0.75rem;
+    margin-bottom: 1rem;
+    color: #cbd5e1;
+}
+
+.resultado-matriz {
+    border-top: 1px solid rgba(255,255,255,0.03);
+    padding-top: 1rem;
+    margin-top: 1rem;
+}
+
+.vector-codigo {
+    font-family: monospace;
+    background: #142e28;
+    padding: 0.2rem 0.6rem;
+    border-radius: 6px;
+    color: var(--color-acento-verde);
+    font-weight: 600;
+    font-size: 0.95rem;
+}
+
+/* --- CONDICIONES TÉCNICAS ESTADO ESTABLE --- */
+.subtitulo-tecnico {
+    font-size: 1.2rem;
+    color: #ffffff;
+    margin-top: 2rem;
+    margin-bottom: 0.75rem;
+}
+
+.grid-condiciones {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 1rem;
+    margin-top: 1.5rem;
+}
+
+.tarjeta-condicion {
+    background: rgba(255,255,255,0.01);
+    border: 1px solid var(--borde-sutil);
+    padding: 1.25rem;
+    border-radius: 14px;
+}
+
+.tarjeta-condicion h5 {
+    font-size: 0.95rem;
+    color: #ffffff;
+    margin-bottom: 0.5rem;
+}
+
+.tarjeta-condicion p {
+    font-size: 0.82rem;
+    line-height: 1.4;
+}
+
+/* --- ANIMACIONES --- */
+.animate-fade {
+    opacity: 0;
+    transform: translateY(10px);
+    animation: surgimiento 0.8s ease forwards;
+}
+
+@keyframes surgimiento {
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* --- RESPONSIVE --- */
+@media (max-width: 768px) {
+    body { padding: 1.5rem 1rem; }
+    .titulo-principal { font-size: 2.25rem; }
+    .grid-variables, .grid-condiciones { grid-template-columns: 1fr; }
+}

@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Menú de Temas - Portafolio</title>
+    <link rel="stylesheet" href="menu.css">
+</head>
+<body>
+
+    <div class="orbe-decorativo"></div>
+
+    <header class="header-menu">
+        <a href="../portada/portada.html" class="btn-regresar">
+            <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="19" y1="12" x2="5" y2="12"></line><polyline points="12 19 5 12 12 5"></polyline></svg>
+            Portada
+        </a>
+        <span class="badge-menu">Examen #3</span>
+    </header>
+
+    <main class="contenedor-menu">
+        <div class="encabezado-seccion">
+            <div class="titulo-audio-wrapper">
+                <h1 class="titulo-seccion">Contenido del Portafolio</h1>
+                
+                <div class="control-audio-presentacion">
+                    <audio id="audio-presentacion" src="../audio/Introduccion.ogg" preload="auto"></audio>
+                    <button id="btn-control-audio" class="btn-audio" title="Escuchar presentación">
+                        <svg class="icono-play" xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><polygon points="5 3 19 12 5 21 5 3"></polygon></svg>
+                        <svg class="icono-pause" xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="currentColor" style="display: none;"><rect x="6" y="4" width="4" height="16"></rect><rect x="14" y="4" width="4" height="16"></rect></svg>
+                        <span>Audio Introductorio</span>
+                    </button>
+                </div>
+            </div>
+            <p class="subtitulo-seccion">Selecciona un tema para explorar las presentaciones vistas en clase.</p>
+        </div>
+
+        <div class="grid-menu">
+            
+            <a href="../analisis_markov/resumen_ejecutivo/index.html" class="tarjeta-menu animate-item">
+                <div class="icono-tarjeta">⛓️</div>
+                <h3>Análisis de Markov</h3>
+                <p>Modelado probabilístico de sistemas estocásticos y cálculo de estados estables a través del tiempo.</p>
+            </a>
+
+            <a href="../control_estadistico/resumen_ejecutivo/index.html" class="tarjeta-menu animate-item">
+                <div class="icono-tarjeta">📊</div>
+                <h3>Control Estadístico</h3>
+                <p>Análisis y calibración de procesos operativos mediante métricas de variabilidad y gráficos de control.</p>
+            </a>
+
+            <a href="../modelado_simulacion/resumen_ejecutivo/index.html" class="tarjeta-menu animate-item">
+                <div class="icono-tarjeta">💻</div>
+                <h3>Modelado de Simulación</h3>
+                <p>Representación matemática de sistemas complejos para la experimentación y toma de decisiones.</p>
+            </a>
+
+            <a href="../modelo_redes/resumen_ejecutivo/index.html" class="tarjeta-menu animate-item">
+                <div class="icono-tarjeta">🕸️</div>
+                <h3>Modelos de Redes</h3>
+                <p>Optimización de rutas, flujos máximos y algoritmos de camino más corto (PERT/CPM).</p>
+            </a>
+
+            <a href="../modelo_transporte/resumen_ejecutivo/index.html" class="tarjeta-menu animate-item">
+                <div class="icono-tarjeta">🚚</div>
+                <h3>Modelos de Transporte</h3>
+                <p>Estrategias de distribución y asignación eficiente de recursos desde orígenes hasta destinos.</p>
+            </a>
+
+            <a href="../programacion/resumen_ejecutivo/index.html" class="tarjeta-menu animate-item">
+                <div class="icono-tarjeta">⚙️</div>
+                <h3>Programación</h3>
+                <p>Modelos lineales y enteros enfocados en la maximización de beneficios y minimización de costos.</p>
+            </a>
+
+        </div>
+    </main>
+
+    <script src="menu.js"></script>
+</body>
+</html>

@@ -1,0 +1,52 @@
+/* --- COMPONENTE GLOBAL SUBNAV --- */
+.subnav-temas {
+    max-width: 850px;
+    margin: 0 auto 2.5rem auto;
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    gap: 0.75rem;
+    background: rgba(16, 36, 32, 0.6); /* Superficie translúcida con matiz verde bosque */
+    padding: 0.4rem;
+    border-radius: 12px;
+    border: 1px solid rgba(255, 255, 255, 0.04);
+    backdrop-filter: blur(8px);
+    -webkit-backdrop-filter: blur(8px);
+}
+
+.tab-btn {
+    background: transparent;
+    border: none;
+    color: #6b7c78; /* Gris verdoso sutil (texto mutado) */
+    padding: 0.75rem;
+    font-size: 0.9rem;
+    font-weight: 500;
+    cursor: pointer;
+    border-radius: 8px;
+    transition: all 0.25s ease;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0.5rem;
+}
+
+.tab-btn:hover {
+    color: #ffffff;
+    background: rgba(255, 255, 255, 0.02);
+}
+
+.tab-btn.activo {
+    background: #060f0e; /* Fondo verde bosque ultra oscuro */
+    color: #4ade80; /* Verde esmeralda brillante de firma */
+    border: 1px solid rgba(74, 222, 128, 0.15); /* Borde sutil esmeralda */
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.4);
+}
+
+/* Animación de entrada para el cambio de pestañas */
+@keyframes surgimiento {
+    from { opacity: 0; transform: translateY(8px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+
+@media (max-width: 600px) {
+    .subnav-temas { grid-template-columns: 1fr; gap: 0.4rem; }
+}

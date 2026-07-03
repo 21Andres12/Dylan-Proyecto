@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Modelos de Redes - Portafolio</title>
+    <link rel="stylesheet" href="../../submenu_global/submenu_global.css">
+    <link rel="stylesheet" href="modelo_redes.css">
+</head>
+<body>
+
+    <div class="orbe-decorativo"></div>
+
+    <header class="header-tema">
+        <a href="../../menu/menu.html" class="btn-regresar">
+            <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="19" y1="12" x2="5" y2="12"></line><polyline points="12 19 5 12 12 5"></polyline></svg>
+            Volver al Menú
+        </a>
+        <span class="badge-tema">Tema 04</span>
+    </header>
+
+    <main class="contenedor-tema">
+        
+        <section class="introduccion-tema animate-fade">
+            <h1 class="titulo-principal">Modelos de Redes</h1>
+            <p class="bajada-titulo">Resumen Ejecutivo: Modelo de Redes</p>
+            <div class="bloque-abstract">
+                <p>La optimización de redes es una rama de la investigación de operaciones orientada a resolver problemas complejos de interconexión, transporte y transferencia de recursos a través de una infraestructura de puntos y enlaces. Los modelos se estructuran formalmente mediante una topología de red definida como un conjunto $G = (N, A)$, donde los <strong>Nodos (N)</strong> representan puntos de origen, destino o transbordo, y los <strong>Arcos (A)</strong> representan los canales de conexión física, cada uno con un costo, distancia o tiempo asociado.</p>
+            </div>
+        </section>
+
+        <nav class="navegacion-redes animate-fade">
+            <button class="tab-btn activo" data-tab="expansion">Árbol de Expansión Mínima</button>
+            <button class="tab-btn" data-tab="flujo">Flujo Máximo</button>
+            <button class="tab-btn" data-tab="ruta">Ruta Más Corta</button>
+        </nav>
+
+        <div class="contenedor-tabs animate-fade">
+
+            <section class="tab-contenido activo" id="expansion">
+                <h2 class="subtitulo-rockwell">Árbol de Expansión Mínima</h2>
+                <p>Este modelo busca vincular absolutamente todos los nodos de la red minimizando el costo, distancia o longitud total de las conexiones, eliminando de forma estricta cualquier redundancia o la formación de ciclos (por ejemplo, en sistemas de cableados eficientes).</p>
+
+                <div class="ejemplo-contenedor redes">
+                    <div class="ejemplo-cabecera">Analogía: Red de Conectividad Doméstica</div>
+                    <div class="ejemplo-cuerpo">
+                        <p>Piensa que eres el encargado de conectar la electricidad o el internet por cable a <strong>5 casas</strong> que están en un vecindario nuevo. Tu objetivo es que todas las casas tengan luz, pero el cable es muy caro, así que necesitas gastar la menor cantidad de metros posible. Para lograrlo, esta técnica te da tres reglas de oro:</p>
+                        
+                        <div class="tabla-caracteristicas">
+                            <div class="fila-caracteristica">
+                                <span class="numero-guia">01</span>
+                                <div>
+                                    <h5>Conectar a todos</h5>
+                                    <p>Ninguna casa se puede quedar por fuera; absolutamente todas deben recibir el servicio de forma integrada.</p>
+                                </div>
+                            </div>
+                            <div class="fila-caracteristica">
+                                <span class="numero-guia">02</span>
+                                <div>
+                                    <h5>Buscar el camino más barato</h5>
+                                    <p>Vas a unir las propiedades utilizando exclusivamente las calles o trayectorias que requieran la menor cantidad de metros de cable.</p>
+                                </div>
+                            </div>
+                            <div class="fila-caracteristica">
+                                <span class="numero-guia">03</span>
+                                <div>
+                                    <h5>Evitar circuitos innecesarios (Sin ciclos)</h5>
+                                    <p>No vas a hacer "círculos" con el cable. Si la Casa A ya está conectada a la Casa B, y la B a la C, no necesitas tirar otro cable directo de la A a la C. Al final, la forma resultante emula las ramas de un árbol que se van extendiendo sin redundancias.</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <section class="tab-contenido" id="flujo">
+                <h2 class="subtitulo-rockwell">Flujo Máximo</h2>
+                <p>Este enfoque maximiza el volumen total de recursos que se pueden trasladar de forma simultánea desde un nodo fuente (origen) hasta un nodo sumidero (destino), respetando de forma estricta las restricciones de capacidad física de cada arco e identificando cuellos de botella operativos.</p>
+
+                <div class="ejemplo-contenedor redes">
+                    <div class="ejemplo-cabecera">Analogía: Red de Distribución de Agua Ciudadana</div>
+                    <div class="ejemplo-cuerpo">
+                        <p>Imagina que eres el administrador de la red de tuberías de agua de toda tu ciudad. Tu trabajo es mandar la mayor cantidad de agua posible desde la planta central (la fuente) hasta el gran tanque del barrio del otro lado de la ciudad (el destino). El modelo evalúa dos variables fundamentales:</p>
+
+                        <div class="grid-comparativa">
+                            <div class="item-comparativa">
+                                <strong>La capacidad de los tubos (Restricciones):</strong>
+                                <p>Las tuberías no son del mismo tamaño. Algunas son tubos gigantescos, pero otras son delgadas. Aunque quieras mandar un río entero, por un tubo estrecho solo va a pasar lo que su diámetro permita.</p>
+                            </div>
+                            <div class="item-comparativa acento">
+                                <strong>Los Cuellos de Botella:</strong>
+                                <p>Si un gran volumen de agua viene por un tubo gigante y de repente entra a uno muy estrecho para llegar al destino, ese punto frena todo el sistema, limita la recepción y acumula el recurso.</p>
+                            </div>
+                        </div>
+
+                        <p class="utilidad-texto"><strong>Valor Matemático:</strong> Esta herramienta calcula el límite máximo exacto de flujo de la red combinada, te indica por cuáles caminos desviar los recursos para aprovechar cada espacio y te señala dónde invertir capital para ampliar los tubos estrechos.</p>
+                    </div>
+                </div>
+            </section>
+
+            <section class="tab-contenido" id="ruta">
+                <h2 class="subtitulo-rockwell">La Ruta Más Corta</h2>
+                <p>Determina la trayectoria óptima que minimiza el esfuerzo global (medido en distancia, tiempo transcurrido o costo logístico de combustible) para trasladarse específicamente desde un único origen seleccionado hasta un único destino final determinado.</p>
+
+                <div class="ejemplo-contenedor redes">
+                    <div class="ejemplo-cabecera">Analogía: Algoritmos de Navegación (Waze / Google Maps)</div>
+                    <div class="ejemplo-cuerpo">
+                        <p>Piensa en lo que hace tu GPS cuando sales de tu casa y pones la dirección de la universidad o del trabajo. Tu único objetivo es ir desde el punto A hasta el punto B de la manera más eficiente posible analizando tres variantes nucleares:</p>
+
+                        <ul class="lista-pasos" style="margin-top: 1rem; margin-bottom: 1.5rem;">
+                            <li><strong>La distancia:</strong> Selección de los tramos viales que sumen la menor cantidad de kilómetros totales.</li>
+                            <li><strong>El tiempo:</strong> Evitar de forma inteligente las calles con exceso de semáforos, presas de tráfico o regulaciones lentas.</li>
+                            <li><strong>El esfuerzo o costo:</strong> En logística profesional, se traduce en buscar rutas donde gastes menos combustible y pagues menos peajes.</li>
+                        </ul>
+
+                        <div class="destaque-regra diferencia">
+                            <p><strong>Diferencia clave:</strong> A diferencia del Árbol de Expansión Mínima (que busca conectar a todo el vecindario a la vez), a la Ruta Más Corta <strong>no le interesa conectar todos los puntos intermedios</strong>. Solo le importa construir el "puente" perfecto y directo entre tu origen y tu destino final, ignorando caminos secundarios.</p>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+        </div>
+
+    </main>
+
+    <script src="../../submenu_global/submenu_global.js"></script>
+    <script src="modelo_redes.js"></script>
+</body>
+</html>

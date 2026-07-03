@@ -1,0 +1,316 @@
+/* ==========================================================================
+   SISTEMA DE DISEÑO ADAPTADO - ESTÉTICA OSCURA DE ALTA FIDELIDAD
+   ========================================================================== */
+:root {
+    --bg-ambiente: #060f0e;       /* Verde bosque extremadamente oscuro y elegante */
+    --bg-superficie: rgba(16, 36, 32, 0.4); /* Superficie translúcida con matiz verde */
+    --texto-principal: #f0fdf4;   /* Blanco con un levísimo toque menta */
+    --texto-mutated: #6b7c78;     /* Gris verdoso sutil */
+    --color-firma: #4ade80;       /* Verde esmeralda brillante para acentos principales */
+    --color-acento-verde: #a3e635; /* Verde lima/menta vibrante para segundos acentos */
+    --color-error: #f87171;       /* Rojo sutil adaptado para legibilidad sobre fondo oscuro */
+    --borde-sutil: rgba(255, 255, 255, 0.04);
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+    background-color: var(--bg-ambiente);
+    color: var(--texto-principal);
+    line-height: 1.6;
+    padding: 3rem 2rem;
+    min-height: 100vh;
+    position: relative;
+    overflow-x: hidden;
+}
+
+/* DECORACIONES Y HEADERS */
+.orbe-decorativo {
+    position: absolute;
+    top: 5%;
+    right: -5%;
+    width: 45rem;
+    height: 45rem;
+    background: radial-gradient(circle, rgba(74, 222, 128, 0.06) 0%, transparent 70%);
+    z-index: 0;
+    pointer-events: none;
+}
+
+.header-tema {
+    position: relative;
+    z-index: 10;
+    max-width: 52rem;
+    margin: 0 auto 2rem auto;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    border-bottom: 1px solid var(--borde-sutil);
+    padding-bottom: 1rem;
+}
+
+.btn-regresar {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
+    color: var(--texto-mutated);
+    text-decoration: none;
+    font-size: 1.3rem;
+    font-weight: 500;
+    transition: color 0.2s ease;
+}
+
+.btn-regresar:hover {
+    color: var(--color-firma);
+}
+
+.badge-tema {
+    background: rgba(74, 222, 128, 0.1);
+    color: var(--color-firma);
+    padding: 0.35rem 0.75rem;
+    border-radius: 9999px;
+    font-size: 1.3rem;
+    font-weight: 600;
+    letter-spacing: 0.05em;
+    text-transform: uppercase;
+}
+
+/* ESTRUCTURA CONTENEDORA */
+.contenedor-tema {
+    position: relative;
+    z-index: 10;
+    max-width: 52rem;
+    margin: 0 auto;
+    display: flex;
+    flex-direction: column;
+    gap: 2.5rem;
+}
+
+.seccion-contenido {
+    background-color: var(--bg-superficie);
+    border: 1px solid var(--borde-sutil);
+    border-radius: 16px;
+    padding: 2.5rem;
+    backdrop-filter: blur(12px);
+    -webkit-backdrop-filter: blur(12px);
+}
+
+.titulo-principal {
+    font-size: 1.75rem;
+    font-weight: 800;
+    color: #ffffff;
+    line-height: 1.3;
+    margin-bottom: 0.5rem;
+}
+
+.bajada-titulo {
+    color: var(--texto-mutated);
+    font-size: 1.05rem;
+}
+
+.subtitulo-rockwell {
+    font-size: 1.25rem;
+    font-weight: 700;
+    color: #ffffff;
+    margin-bottom: 1rem;
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+}
+
+/* COMPONENTES DE RECUADROS Y BLOQUES */
+.bloque-abstract {
+    background: rgba(255, 255, 255, 0.01);
+    border: 1px solid var(--borde-sutil);
+    padding: 1.5rem;
+    border-radius: 12px;
+    margin-bottom: 1.5rem;
+}
+
+.bloque-abstract h3 {
+    font-size: 1.05rem;
+    color: var(--color-firma);
+    margin-bottom: 0.5rem;
+}
+
+.bloque-abstract p {
+    color: var(--texto-mutated);
+    font-size: 0.95rem;
+    margin-bottom: 0.5rem;
+}
+
+.bloque-abstract ul {
+    padding-left: 1.25rem;
+    font-size: 0.95rem;
+    color: var(--texto-mutated);
+}
+
+.bloque-abstract li {
+    margin-bottom: 0.4rem;
+}
+
+.bloque-procedimiento {
+    background: rgba(6, 15, 14, 0.6);
+    border: 1px solid var(--borde-sutil);
+    border-radius: 10px;
+    padding: 1.25rem;
+    margin: 1rem 0;
+}
+
+.desglose-ecuacion p {
+    margin-bottom: 0.5rem;
+    font-size: 0.95rem;
+}
+
+.desglose-ecuacion p:last-child {
+    margin-bottom: 0;
+}
+
+.vector-destacado {
+    background: rgba(255, 255, 255, 0.02);
+    border: 1px dashed var(--borde-sutil);
+    padding: 0.75rem;
+    border-radius: 8px;
+    text-align: center;
+    font-weight: 600;
+    color: var(--color-firma);
+    margin: 0.75rem 0;
+}
+
+/* GRID Y TARJETAS DINÁMICAS */
+.grid-variables {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+    gap: 1.5rem;
+    margin: 1rem 0;
+}
+
+.tarjeta-variable {
+    background: rgba(255, 255, 255, 0.01);
+    border: 1px solid var(--borde-sutil);
+    border-radius: 12px;
+    padding: 1.25rem;
+}
+
+.tarjeta-variable h4 {
+    color: var(--color-firma);
+    font-size: 0.95rem;
+    margin-bottom: 0.75rem;
+    font-weight: 700;
+}
+
+.clear-border {
+    border: 1px solid var(--borde-sutil) !important;
+}
+
+/* MANEJO DE TABLAS */
+table {
+    width: 100%;
+    border-collapse: collapse;
+    font-size: 0.9rem;
+    margin: 0.5rem 0;
+}
+
+th, td {
+    padding: 0.6rem 0.8rem;
+    text-align: left;
+    border-bottom: 1px solid var(--borde-sutil);
+}
+
+th {
+    color: var(--color-firma);
+    font-weight: 600;
+    background-color: rgba(255, 255, 255, 0.02);
+}
+
+.text-center { text-align: center; }
+
+/* RECUADROS DE RESPUESTAS E INTERPRETACIONES */
+.caja-uso-mc {
+    background: rgba(74, 222, 128, 0.02);
+    border: 1px solid rgba(74, 222, 128, 0.08);
+    padding: 1.5rem;
+    border-radius: 14px;
+    margin-top: 1.5rem;
+}
+
+.caja-uso-mc h5 {
+    color: var(--color-firma);
+    font-size: 0.95rem;
+    font-weight: 700;
+    margin-bottom: 1rem;
+}
+
+.numbers-estable .tarjeta-variable {
+    background: rgba(6, 15, 14, 0.4);
+}
+
+.val-final {
+    display: block;
+    font-size: 1.6rem;
+    font-weight: bold;
+    color: var(--color-acento-verde);
+    margin: 0.2rem 0;
+    font-family: monospace;
+}
+
+.destaque-regra {
+    background: rgba(255, 255, 255, 0.01);
+    border-left: 3px solid var(--color-acento-verde);
+    padding: 0.75rem 1rem;
+    font-size: 0.9rem;
+    color: var(--texto-mutated);
+}
+
+.caja-reporte {
+    background: rgba(255, 255, 255, 0.01);
+    border-left: 3px solid var(--color-firma);
+    padding: 1.25rem 1.5rem;
+    border-radius: 0 12px 12px 0;
+    margin-top: 1.25rem;
+}
+
+.caja-reporte h5 {
+    color: var(--color-firma);
+    font-size: 0.9rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+    margin-bottom: 0.5rem;
+}
+
+.caja-reporte blockquote {
+    color: var(--texto-mutated);
+    font-style: italic;
+    font-size: 0.95rem;
+}
+
+.final-box {
+    background: linear-gradient(135deg, rgba(74, 222, 128, 0.02) 0%, transparent 100%);
+}
+
+.margin-top { margin-top: 1.5rem; }
+
+/* ANIMACIONES */
+.animate-fade {
+    opacity: 0;
+    transform: translateY(10px);
+    animation: surgir 0.6s ease forwards;
+}
+
+@keyframes surgir { 
+    to { 
+        opacity: 1; 
+        transform: translateY(0); 
+    } 
+}
+
+@media (max-width: 640px) {
+    body { padding: 2rem 1rem; }
+    .header-tema { flex-direction: column; align-items: flex-start; gap: 0.75rem; }
+    .seccion-contenido { padding: 1.5rem; }
+}

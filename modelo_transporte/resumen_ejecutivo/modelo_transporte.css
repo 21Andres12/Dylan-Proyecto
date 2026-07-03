@@ -1,0 +1,140 @@
+:root {
+    --bg-ambiente: #060f0e;       /* Verde bosque extremadamente oscuro y elegante */
+    --bg-superficie: rgba(16, 36, 32, 0.4); /* Superficie translúcida con matiz verde */
+    --texto-principal: #f0fdf4;   /* Blanco con un levísimo toque menta */
+    --texto-mutado: #6b7c78;      /* Gris verdoso sutil */
+    --color-firma: #4ade80;       /* Verde esmeralda brillante para acentos principales */
+    --color-acento-verde: #a3e635; /* Verde lima/menta vibrante para segundos acentos */
+    --color-alerta-rojo: #ef4444;  /* Mantiene el rojo para la semántica de problemas o errores */
+    --borde-sutil: rgba(255, 255, 255, 0.04);
+}
+
+* { margin: 0; padding: 0; box-sizing: border-box; }
+
+body {
+    font-family: system-ui, -apple-system, BlinkMacSystemFont, sans-serif;
+    background-color: var(--bg-ambiente);
+    color: var(--texto-principal);
+    line-height: 1.6;
+    padding: 3rem 2rem;
+    min-height: 100vh;
+    position: relative;
+}
+
+.orbe-decorativo {
+    position: absolute;
+    top: 20%;
+    left: 20%;
+    transform: translate(-50%, -50%);
+    width: 600px;
+    height: 600px;
+    background: radial-gradient(circle, rgba(74, 222, 128, 0.03) 0%, rgba(0,0,0,0) 70%);
+    z-index: -1;
+    pointer-events: none;
+}
+
+.header-tema {
+    max-width: 850px;
+    width: 100%;
+    margin: 0 auto 3rem auto;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding-bottom: 1rem;
+    border-bottom: 1px solid var(--borde-sutil);
+}
+
+.btn-regresar {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
+    color: var(--texto-mutado);
+    text-decoration: none;
+    font-size: 1.3rem;
+    font-weight: 500;
+}
+
+.btn-regresar:hover { color: #ffffff; }
+
+.badge-tema {
+    background: rgba(74, 222, 128, 0.08);
+    color: var(--color-firma);
+    padding: 0.3rem 0.9rem;
+    border-radius: 20px;
+    font-size: 1.3rem;
+    font-weight: 600;
+    border: 1px solid rgba(74, 222, 128, 0.1);
+}
+
+.contenedor-tema { max-width: 850px; width: 100%; margin: 0 auto; }
+.titulo-principal { font-family: 'Rockwell', serif; font-size: 3rem; font-weight: 700; color: #ffffff; margin-bottom: 0.25rem; }
+.subtitulo-rockwell { font-family: 'Rockwell', serif; font-size: 1.6rem; font-weight: 600; color: #ffffff; margin-bottom: 1.5rem; margin-top: 1.5rem; }
+.bajada-titulo { font-size: 1.1rem; color: var(--color-firma); margin-bottom: 1.75rem; font-weight: 500; }
+
+.bloque-abstract {
+    background: linear-gradient(to right, rgba(74, 222, 128, 0.03), transparent);
+    border-left: 3px solid var(--color-firma);
+    padding: 1.5rem;
+    border-radius: 0 12px 12px 0;
+    margin-bottom: 3.5rem;
+    font-size: 1.05rem;
+    color: #cbd5e1;
+}
+
+.destaque-regra {
+    background: rgba(255, 255, 255, 0.01);
+    border: 1px solid var(--borde-sutil);
+    padding: 1.25rem;
+    border-radius: 12px;
+    margin-bottom: 1.5rem;
+}
+.destaque-regra.problema { border-left: 3px solid var(--color-alerta-rojo); background: linear-gradient(to right, rgba(239, 68, 68, 0.01), transparent); }
+
+.grid-enfoques { display: grid; grid-template-columns: 1fr 1fr; gap: 1.5rem; margin-bottom: 3rem; }
+.caja-enfoque { background: var(--bg-superficie); border: 1px solid var(--borde-sutil); padding: 1.5rem; border-radius: 14px; }
+.caja-enfoque h4 { font-size: 1.1rem; color: #ffffff; margin-bottom: 0.6rem; }
+.caja-enfoque p { font-size: 0.95rem; color: #cbd5e1; }
+.caja-enfoque.acento { background: linear-gradient(135deg, rgba(74, 222, 128, 0.02) 0%, transparent 100%); border-color: rgba(74, 222, 128, 0.1); }
+.caja-enfoque.acento h4 { color: var(--color-firma); }
+
+/* TIMELINE */
+.timeline-logistica { position: relative; padding-left: 2.5rem; }
+.timeline-logistica::before { content: ''; position: absolute; left: 0.75rem; top: 5px; bottom: 5px; width: 2px; background: rgba(255, 255, 255, 0.03); }
+.timeline-item { position: relative; margin-bottom: 3.5rem; }
+.timeline-badge { position: absolute; left: -2.5rem; top: 4px; width: 1.6rem; height: 1.6rem; border-radius: 50%; background: #0b1916; border: 2px solid var(--color-firma); color: #ffffff; font-size: 0.75rem; font-weight: 700; display: flex; align-items: center; justify-content: center; }
+.timeline-panel { background: var(--bg-superficie); border: 1px solid var(--borde-sutil); padding: 2rem; border-radius: 16px; backdrop-filter: blur(12px); }
+
+.titulo-fase { font-size: 1.3rem; color: #ffffff; }
+.subtitulo-fase { font-size: 0.85rem; color: var(--color-firma); text-transform: uppercase; font-weight: 600; display: block; margin-bottom: 1rem; }
+.descripcion-fase { font-size: 0.98rem; color: #cbd5e1; margin-bottom: 1.25rem; }
+
+.caja-analogia, .caja-truco { background: rgba(255, 255, 255, 0.01); border: 1px solid rgba(255, 255, 255, 0.02); padding: 1.25rem; border-radius: 12px; border-left: 3px solid var(--color-firma); }
+.caja-analogia h5, .caja-truco h5 { font-size: 0.95rem; color: #ffffff; margin-bottom: 0.5rem; }
+.caja-analogia ul { margin-left: 1.25rem; color: var(--texto-mutado); font-size: 0.9rem; }
+.caja-analogia li { margin-bottom: 0.5rem; }
+
+.grid-piedras { display: grid; grid-template-columns: 1fr 1fr; gap: 1rem; margin-top: 1rem; }
+.piedra-card { padding: 1rem; border-radius: 10px; border: 1px solid var(--borde-sutil); }
+.piedra-card h6 { font-size: 0.9rem; margin-bottom: 0.3rem; }
+.piedra-card p { font-size: 0.85rem; color: var(--texto-mutado); }
+.piedra-card.firme { background: rgba(163, 230, 53, 0.02); border-color: rgba(163, 230, 53, 0.1); color: var(--color-acento-verde); }
+.piedra-card.vacia { background: rgba(255, 255, 255, 0.01); color: #ffffff; }
+
+.caja-resultado-matematico { background: #091714; padding: 1.25rem; border-radius: 12px; border: 1px solid var(--borde-sutil); }
+.lista-pasos-detallada { margin-left: 1.25rem; font-size: 0.9rem; color: #cbd5e1; margin-bottom: 1rem; }
+.lista-pasos-detallada li { margin-bottom: 0.4rem; }
+
+.resultado-valor { padding: 0.75rem 1rem; border-radius: 8px; font-size: 0.88rem; margin-bottom: 0.5rem; line-height: 1.4; }
+.resultado-valor.negativo { background: rgba(163, 230, 53, 0.04); border-left: 2px solid var(--color-acento-verde); color: #e2e8f0; }
+.resultado-valor.positivo { background: rgba(255,255,255,0.01); border-left: 2px solid var(--texto-mutado); color: var(--texto-mutado); }
+
+.utilidad-texto { font-size: 0.9rem; color: #6b7c78; background: #091714; padding: 0.75rem 1rem; border-radius: 10px; border-left: 2px solid var(--color-acento-verde); }
+.consecuencia-matematica { font-size: 0.88rem; color: #6b7c78; }
+
+@media (max-width: 768px) {
+    body { padding: 1.5rem 1rem; }
+    .titulo-principal { font-size: 2.25rem; }
+    .grid-enfoques, .grid-piedras { grid-template-columns: 1fr; }
+    .timeline-logistica { padding-left: 1.5rem; }
+    .timeline-badge { left: -1.5rem; }
+}
